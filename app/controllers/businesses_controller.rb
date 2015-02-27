@@ -3,6 +3,7 @@ class BusinessesController < ApplicationController
 
   # GET /businesses
   # GET /businesses.json
+
   def index
     @businesses = Business.all
   end

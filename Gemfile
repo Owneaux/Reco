@@ -1,16 +1,17 @@
 source 'https://rubygems.org'
 
-gem 'bootstrap-sass'
-
-gem 'font-awesome-sass'
+gem 'devise'
 
 gem 'simple_form', '~> 3.1.0'
+gem 'bootstrap-sass', '~> 3.3.3'
+gem 'font-awesome-rails', '~> 4.3.0'
+gem 'sass-rails', '~> 5.0'
+gem 'font-awesome-sass'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
 # Use postgresql as the database for Active Record
 gem 'pg'
-# Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
