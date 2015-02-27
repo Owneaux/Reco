@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Deal type:</strong>
+  <%= @deal.deal_type %>
+</p>
+
+<p>
+  <strong>Promoter:</strong>
+  <%= @deal.promoter %>
+</p>
+
+<p>
+  <strong>Business:</strong>
+  <%= @deal.business %>
+</p>
+
+<%= link_to 'Edit', edit_deal_path(@deal) %> |
+<%= link_to 'Back', deals_path %>
