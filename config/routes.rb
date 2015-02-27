@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  devise_for :business_users
   devise_for :users
   get 'home/welcome' => 'home#welcome'
 
