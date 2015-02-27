@@ -8,15 +8,21 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
-    <div data-role="page">
-      <div data-role="header">
-        <h1>Reco app</h1>
-      </div>
-      <div data-role="content">
-        <%= yield %>
-      </div>
-      <div data-role="footer" data-position="fixed">
-        <%= render('layouts/bottom_nav_bar.html.erb') %>
+    <div class="my_container">
+      <div data-role="page">
+        <% if params[:controller] == "business_home" %>
+          <div data-role="header">
+            <h1>Reco app</h1>
+          </div>
+        <% end %>
+        <div data-role="content">
+          <%= yield %>
+        </div>
+        <div data-role="footer" data-position="fixed">
+          <% if params[:controller] == "business_home" %>
+            <%= render('layouts/bottom_nav_bar.html.erb') %>
+          <% end %>
+        </div>
       </div>
   </body>
 </html>
