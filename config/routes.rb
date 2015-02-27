@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+
+  devise_for :users
+  get 'businesses_home/welcome' => 'businesses_home#welcome'
+
+  root to: 'businesses_home#welcome'
+
   resources :deals
 
   resources :promoters
