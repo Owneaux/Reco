@@ -1,15 +1,22 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Reco</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-<%= render('layouts/header_nav_bar.html.erb') %>
-
-<%= yield %>
-
-</body>
+  <head>
+    <title>Reco</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div data-role="page">
+      <div data-role="header">
+        <h1>Reco app</h1>
+      </div>
+      <div data-role="content">
+        <%= yield %>
+      </div>
+      <div data-role="footer" data-position="fixed">
+        <%= render('layouts/bottom_nav_bar.html.erb') %>
+      </div>
+  </body>
 </html>
