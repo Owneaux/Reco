@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'settings/index'
+
   devise_for :business_users
   devise_for :users
 
