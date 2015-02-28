@@ -10,17 +10,28 @@
   <body>
     <div class="my_container">
       <div data-role="page">
-        <% if params[:controller] == "business_home" %>
-          <div data-role="header">
-            <h1>Reco app</h1>
-          </div>
-        <% end %>
+        <% nav_bars = params[:controller] == "home" &&  params[:action] == "welcome" %>
+        <% role = current_user.class %>
+        <% p "Role: " + role.to_s %>
+        <div data-role="header" style="overflow:hidden;">
+          <% if !nav_bars %>
+            <% if role == 'User' %>
+              <%= render('layouts/user/header_nav_bar.html.erb') %>
+            <% else %>
+              <%= render('layouts/business_user/header_nav_bar.html.erb') %>
+            <% end %>
+          <% end %>
+        </div>
         <div data-role="content">
           <%= yield %>
         </div>
         <div data-role="footer" data-position="fixed">
-          <% if params[:controller] == "business_home" %>
-            <%= render('layouts/bottom_nav_bar.html.erb') %>
+          <% if !nav_bars %>
+            <% if role == 'User' %>
+              <%= render('layouts/user/bottom_nav_bar.html.erb') %>
+            <% else %>
+              <%= render('layouts/business_user/bottom_nav_bar.html.erb') %>
+            <% end %>
           <% end %>
         </div>
       </div>

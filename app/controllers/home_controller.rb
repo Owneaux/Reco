@@ -1,7 +1,12 @@
 class HomeController < ApplicationController
 
-  def welcome
+  skip_before_action :authenticate_user!
 
+  def welcome
+    render layout: "application_not_logged"
+  end
+
+  def index
   end
 
   def sign_process
