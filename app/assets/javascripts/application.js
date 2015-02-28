@@ -15,5 +15,6 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require jquery.mobile
+//= require jqm-spinbox
 //= require growl
 //= require_tree .

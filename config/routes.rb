@@ -1,16 +1,16 @@
 Rails.application.routes.draw do
 
+  get 'welcome/index' => 'welcome#index'
+  get 'welcome/sign_process' => 'welcome#sign_process'
+
+  root to: 'welcome#index'
+
   get 'settings/index'
 
   devise_for :business_users
   devise_for :users
 
-  get 'home/welcome' => 'home#welcome'
-  get 'home/sign_process' => 'home#sign_process'
   get 'home/index' => 'home#index'
-  #get 'home/signup' => 'home#signup'
-
-  root to: 'home#welcome'
 
   resources :deals
 
