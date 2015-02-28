@@ -5,6 +5,8 @@ class DealsController < ApplicationController
   # GET /deals.json
   def index
     @deals = Deal.all
+    @subheader = true
+
   end
 
   # GET /deals/1
@@ -15,6 +17,7 @@ class DealsController < ApplicationController
   # GET /deals/new
   def new
     @deal = Deal.new
+    @back_path = deals_path
   end
 
   # GET /deals/1/edit

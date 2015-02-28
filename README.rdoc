@@ -23,6 +23,12 @@ Things you may want to cover:
 
 * ...
 
+* Links to review
+  Fontowesome + jquery mobile:
+    https://github.com/dotcastle/jquery-mobile-font-awesome
+    http://htmlpreview.github.io/?https://github.com/dotcastle/jquery-mobile-font-awesome/blob/master/index.html
+
+
 
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.

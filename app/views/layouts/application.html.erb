@@ -20,6 +20,9 @@
               <%= render('layouts/business_user/header_nav_bar.html.erb') %>
             <% end %>
           <% end %>
+          <% if defined? @subheader and @subheader == true %>
+            <%= render(params[:controller] + "/subheader_nav_bar.html.erb") %>
+          <% end %>
         </div>
         <div data-role="content">
           <%= yield %>

@@ -7,6 +7,7 @@ class HomeController < ApplicationController
   end
 
   def index
+
   end
 
   def sign_process
