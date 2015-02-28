@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+source 'https://rails-assets.org'
 
 gem 'devise'
 
@@ -8,6 +9,7 @@ gem 'font-awesome-rails', '~> 4.3.0'
 gem 'sass-rails', '~> 5.0'
 gem 'font-awesome-sass'
 gem 'jquery_mobile_rails', '~> 1.4.5'
+gem 'rails-assets-growl'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'

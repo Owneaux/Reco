@@ -1,18 +1,20 @@
 <div class="welcome-container">
   <div class="sign-up-container">
-    <form>
+    <form action="/home/sign_process" method="get">
       <fieldset data-role="controlgroup" data-type="horizontal" id="role">
-        <input name="radio-choice" id="business-signup" value="business" checked="checked" type="radio">
+        <input name="role_option" id="business-signup" value="business" checked="checked" type="radio">
         <label for="business-signup">Business</label>
-        <input name="radio-choice" id="promoter-signup" value="promoter" type="radio">
+        <input name="role_option" id="promoter-signup" value="promoter" type="radio">
         <label for="promoter-signup">Promoter</label>
       </fieldset>
+      <div class="button_container">
+        <%= button_tag( :name => 'submit_option', :class => "btn btn-primary", :value => "signup") do %>
+              Sign up
+          <% end %>
+        <%= button_tag( :name => 'submit_option', :class => "btn btn-default", :value => "login") do %>
+              Login
+          <% end %>
+      </div>
     </form>
-  </div>
-  <div class="button_container">
-    <div class ="form-group">
-      <a href="#" class="btn btn-default" id="btn-signup">Sign up</a>
-      <a href="#" class="btn btn-default" id="btn-login">Log in</a>
-    </div>
   </div>
 </div>
