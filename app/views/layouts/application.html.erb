@@ -11,8 +11,8 @@
     <div class="my_container">
       <div data-role="page">
         <% nav_bars = params[:controller] == "home" &&  params[:action] == "welcome" %>
-        <% role = current_user.class %>
-        <% p "Role: " + role.to_s %>
+        <% role = current_user.class.to_s %>
+        <% p "Role: " + role %>
         <div data-role="header" style="overflow:hidden;">
           <% if !nav_bars %>
             <% if role == 'User' %>
