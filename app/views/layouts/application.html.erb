@@ -10,30 +10,26 @@
   <body>
     <div class="my_container">
       <div data-role="page">
-        <% nav_bars = params[:controller] == "home" &&  params[:action] == "welcome" %>
-        <% role = current_user.class.to_s %>
+        <% p "User class: " + current_user.class.to_s %>
+        <% p "BusinessUser class: " + current_business_user.class.to_s %>
         <div data-role="header" style="overflow:hidden;">
-          <% if !nav_bars %>
-            <% if role == 'User' %>
-              <%= render('layouts/user/header_nav_bar.html.erb') %>
-            <% else %>
-              <%= render('layouts/business_user/header_nav_bar.html.erb') %>
-            <% end %>
+          <% if @role == 'User' %>
+            <%= render('layouts/user/header_nav_bar.html.erb') %>
+          <% else %>
+            <%= render('layouts/business_user/header_nav_bar.html.erb') %>
           <% end %>
           <% if defined? @subheader and @subheader == true %>
-            <%= render(params[:controller] + "/subheader_nav_bar.html.erb") %>
+            <%= render("layouts/subheader_nav_bar.html.erb") %>
           <% end %>
         </div>
         <div data-role="content">
           <%= yield %>
         </div>
         <div data-role="footer" data-position="fixed">
-          <% if !nav_bars %>
-            <% if role == 'User' %>
-              <%= render('layouts/user/bottom_nav_bar.html.erb') %>
-            <% else %>
-              <%= render('layouts/business_user/bottom_nav_bar.html.erb') %>
-            <% end %>
+          <% if @role == 'User' %>
+            <%= render('layouts/user/bottom_nav_bar.html.erb') %>
+          <% else %>
+            <%= render('layouts/business_user/bottom_nav_bar.html.erb') %>
           <% end %>
         </div>
       </div>

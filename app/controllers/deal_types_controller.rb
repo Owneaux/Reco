@@ -5,6 +5,10 @@ class DealTypesController < ApplicationController
   # GET /deal_types.json
   def index
     @deal_types = DealType.all
+    @subheader = true
+    @header_title = "Deal type"
+    @back_path = settings_index_path
+    @subheader_new_item_path = new_deal_type_path
   end
 
   # GET /deal_types/1
@@ -15,10 +19,14 @@ class DealTypesController < ApplicationController
   # GET /deal_types/new
   def new
     @deal_type = DealType.new
+    @header_title = "New deal type"
+    @back_path = deal_types_path
   end
 
   # GET /deal_types/1/edit
   def edit
+    @header_title = "Deal type"
+    @back_path = deal_types_path
   end
 
   # POST /deal_types
@@ -28,8 +36,8 @@ class DealTypesController < ApplicationController
 
     respond_to do |format|
       if @deal_type.save
-        format.html { redirect_to @deal_type, notice: 'Deal type was successfully created.' }
-        format.json { render :show, status: :created, location: @deal_type }
+        format.html { redirect_to deal_types_path, notice: 'Deal type was successfully created.' }
+        format.json { render :show, status: :created, location: deal_types_path }
       else
         format.html { render :new }
         format.json { render json: @deal_type.errors, status: :unprocessable_entity }
@@ -42,7 +50,7 @@ class DealTypesController < ApplicationController
   def update
     respond_to do |format|
       if @deal_type.update(deal_type_params)
-        format.html { redirect_to @deal_type, notice: 'Deal type was successfully updated.' }
+        format.html { redirect_to deal_types_path, notice: 'Deal type was successfully updated.' }
         format.json { render :show, status: :ok, location: @deal_type }
       else
         format.html { render :edit }
@@ -69,6 +77,6 @@ class DealTypesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def deal_type_params
-      params.require(:deal_type).permit(:name, :commision, :description)
+      params.require(:deal_type).permit(:name, :commission, :description)
     end
 end

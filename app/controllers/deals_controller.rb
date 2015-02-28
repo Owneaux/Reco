@@ -6,7 +6,8 @@ class DealsController < ApplicationController
   def index
     @deals = Deal.all
     @subheader = true
-
+    @header_title = "Deals"
+    @subheader_new_item_path = new_deal_path
   end
 
   # GET /deals/1
