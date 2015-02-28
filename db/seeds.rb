@@ -5,3 +5,14 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+cities = %w(Paris London Brussels Amsterdam)
+30.times do
+  promoter = Promoter.create(
+    name: Faker::Name.name,
+    email: Faker::Internet.email,
+    phone: Faker::PhoneNumber.cell_phone,
+    city: cities[rand(3)]
+  )
+  promoter.save
+end

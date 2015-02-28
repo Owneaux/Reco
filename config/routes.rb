@@ -1,16 +1,22 @@
 Rails.application.routes.draw do
 
+  root to: 'welcome#index'
+
   get 'welcome/index' => 'welcome#index'
   get 'welcome/sign_process' => 'welcome#sign_process'
 
-  root to: 'welcome#index'
-
   get 'settings/index'
 
-  devise_for :business_users
-  devise_for :users
-
   get 'home/index' => 'home#index'
+
+  get 'business_promoters/index'
+
+
+  devise_for :business_users
+  get 'business_users/business' => "business_users#business"
+
+  devise_for :users
+  get 'users/promoter' => "users#promoter"
 
   resources :deals
 
