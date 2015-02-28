@@ -1,3 +1,12 @@
 .my_container {
   //background-image: image-url("launch_pic.jpg");
 }
+
+.subheader {
+  height: 40px;
+  background-color: #F0F0F0;
+  .btn-container {
+    float:right;
+    width: 25%;
+  }
+}

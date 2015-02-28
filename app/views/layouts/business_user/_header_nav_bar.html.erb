@@ -1,2 +1,6 @@
-<h1>Reco app - Business</h1>
-<%= link_to "Sign out", destroy_business_user_session_path, method: :delete, class: "ui-btn-right", data: { icon: "gear" } %>
+<h1>Business</h1>
+<%= link_to "Sign out", destroy_business_user_session_path, method: :delete, class: "ui-btn-right ui-btn-icon-no-text", data: { icon: "fa-sign-out" } %>
+
+<% if @back_path %>
+  <%= link_to "Back", @back_path, class: "ui-btn-left ui-btn-icon-no-text", data: { icon: "fa-arrow-left" } %>
+<% end %>
