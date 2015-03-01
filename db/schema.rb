@@ -11,10 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150301104646) do
+ActiveRecord::Schema.define(version: 20150301123735) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "business_promoters", force: :cascade do |t|
+    t.integer  "business_id"
+    t.integer  "promoter_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "business_promoters", ["business_id"], name: "index_business_promoters_on_business_id", using: :btree
+  add_index "business_promoters", ["promoter_id"], name: "index_business_promoters_on_promoter_id", using: :btree
 
   create_table "businesses", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -31,13 +41,22 @@ ActiveRecord::Schema.define(version: 20150301104646) do
     t.datetime "updated_at"
     t.string   "name"
     t.string   "address"
-    t.string   "city"
     t.string   "phone"
     t.string   "picture"
+    t.integer  "city_id"
   end
 
+  add_index "businesses", ["city_id"], name: "index_businesses_on_city_id", using: :btree
   add_index "businesses", ["email"], name: "index_businesses_on_email", unique: true, using: :btree
   add_index "businesses", ["reset_password_token"], name: "index_businesses_on_reset_password_token", unique: true, using: :btree
+
+  create_table "cities", force: :cascade do |t|
+    t.string   "name"
+    t.string   "country"
+    t.string   "geo_city_code"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
 
   create_table "deal_types", force: :cascade do |t|
     t.string   "name"
@@ -73,15 +92,20 @@ ActiveRecord::Schema.define(version: 20150301104646) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name"
-    t.string   "city"
     t.string   "picture"
     t.string   "phone"
+    t.integer  "city_id"
   end
 
+  add_index "promoters", ["city_id"], name: "index_promoters_on_city_id", using: :btree
   add_index "promoters", ["email"], name: "index_promoters_on_email", unique: true, using: :btree
   add_index "promoters", ["reset_password_token"], name: "index_promoters_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "business_promoters", "businesses"
+  add_foreign_key "business_promoters", "promoters"
+  add_foreign_key "businesses", "cities"
   add_foreign_key "deals", "businesses"
   add_foreign_key "deals", "deal_types"
   add_foreign_key "deals", "promoters"
+  add_foreign_key "promoters", "cities"
 end

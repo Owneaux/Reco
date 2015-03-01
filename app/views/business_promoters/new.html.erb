@@ -1,0 +1,23 @@
+<div>
+  <ul data-role="listview" data-inset="true">
+    <li>
+      <a href=<%= business_promoters_city_list_path %>><%= @city.name %></a>
+    </li>
+</ul>
+</div>
+<div>
+  <ul data-role="listview" data-inset="false">
+    <% @promoters.each do |promoter| %>
+      <li>
+        <a href="#">
+          <% if promoter.picture.nil? %>
+            <%= image_tag("default_avatar.png") %>
+          <% else %>
+            <img src="<%= promoter.picture %>">
+          <% end %>
+          <h2><%= promoter.name%></h2>
+        </a>
+      </li>
+    <% end %>
+  </ul>
+</div>

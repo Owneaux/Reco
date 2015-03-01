@@ -8,7 +8,11 @@ class DealTypesController < ApplicationController
     @subheader = true
     @header_title = "Deal type"
     @back_path = settings_index_path
-    @subheader_new_item_path = new_deal_type_path
+    @subheader_left_action = {
+      path: new_deal_type_path,
+      text: "",
+      icon: "i-btn-right ui-icon-fa-plus ui-btn-icon-notext ui-corner-all"
+    }
   end
 
   # GET /deal_types/1

@@ -7,7 +7,11 @@ class DealsController < ApplicationController
     @deals = Deal.all
     @subheader = true
     @header_title = "Deals"
-    @subheader_new_item_path = new_deal_path
+    @subheader_left_action = {
+      path: new_deal_path,
+      text: "",
+      icon: "i-btn-right ui-icon-fa-plus ui-btn-icon-notext ui-corner-all"
+    }
   end
 
   # GET /deals/1
