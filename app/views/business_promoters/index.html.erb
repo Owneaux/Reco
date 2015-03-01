@@ -1,2 +1,14 @@
-<h1>BusinessPromoters#index</h1>
-<p>Find me in app/views/business_promoters/index.html.erb</p>
+<ul data-role="listview" data-inset="false">
+  <% @business_promoters.each do |promoter| %>
+    <li>
+      <a href="#">
+        <% if promoter.picture.nil? %>
+          <%= image_tag("default_avatar.png") %>
+        <% else %>
+          <img src="<%= promoter.picture %>">
+        <% end %>
+        <h2><%= promoter.name %></h2>
+      </a>
+    </li>
+  <% end %>
+</ul>

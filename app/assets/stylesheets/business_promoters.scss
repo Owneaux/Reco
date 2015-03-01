@@ -1,0 +1,15 @@
+.city_container {
+  margin-bottom: 20px;
+}
+
+.promoters_container {
+  .ui-listview {
+    margin-top: 0px;
+    .ui-li-has-thumb {
+      height: 58px;
+    }
+    img {
+      height: 56px;
+    }
+  }
+}
