@@ -12,10 +12,12 @@ Rails.application.routes.draw do
   get 'business_promoters/index'
 
 
-  devise_for :business_users
+  devise_for :business_users,
+              :controllers => { :registrations =>  "business_user/registrations" }
   get 'business_users/business' => "business_users#business"
 
   devise_for :users
+
   get 'users/promoter' => "users#promoter"
 
   resources :deals
