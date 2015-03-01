@@ -1,15 +1,15 @@
-<div>
+<div class="city_container">
   <ul data-role="listview" data-inset="true">
     <li>
       <a href=<%= business_promoters_city_list_path %>><%= @city.name %></a>
     </li>
-</ul>
+  </ul>
 </div>
-<div>
+<div class="promoters_container">
   <ul data-role="listview" data-inset="false">
     <% @promoters.each do |promoter| %>
       <li>
-        <a href="#">
+        <a href="<%= business_promoters_create_path + '?promoter_id=' + promoter.id.to_s %>">
           <% if promoter.picture.nil? %>
             <%= image_tag("default_avatar.png") %>
           <% else %>

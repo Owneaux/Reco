@@ -1,12 +1,14 @@
 <ul data-role="listview" data-inset="false">
   <% @business_promoters.each do |promoter| %>
-    <li><a href="#">
-      <% if promoter.picture.nil? %>
-        <%= image_tag("default_avatar.png") %>
-      <% else %>
-        <img src="<%= promoter.picture %>">
-      <% end %>
-    <h2><%= promoter.name %></h2>
-    <p><%= promoter.rating %></p></a>
+    <li>
+      <a href="#">
+        <% if promoter.picture.nil? %>
+          <%= image_tag("default_avatar.png") %>
+        <% else %>
+          <img src="<%= promoter.picture %>">
+        <% end %>
+        <h2><%= promoter.name %></h2>
+      </a>
+    </li>
   <% end %>
 </ul>

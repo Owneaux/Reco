@@ -10,7 +10,7 @@ class DealsController < ApplicationController
     @subheader_left_action = {
       path: new_deal_path,
       text: "",
-      icon: "i-btn-right ui-icon-fa-plus ui-btn-icon-notext ui-corner-all"
+      icon: "ui-btn-right ui-icon-fa-plus ui-btn-icon-notext ui-corner-all"
     }
   end
 
