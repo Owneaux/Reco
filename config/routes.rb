@@ -1,24 +1,24 @@
 Rails.application.routes.draw do
 
-  get 'welcome/index' => 'welcome#index'
-  get 'welcome/sign_process' => 'welcome#sign_process'
+  devise_for :promoters
+  devise_for :businesses, controllers: { :registrations =>'businesses/registrations' }
 
   root to: 'welcome#index'
 
-  get 'settings/index'
+  get 'welcome/index' => 'welcome#index'
+  get 'welcome/sign_process' => 'welcome#sign_process'
 
-  devise_for :business_users
-  devise_for :users
+  get 'settings/index'
 
   get 'home/index' => 'home#index'
 
+  get 'business_promoters/index'
+
+#   get 'users/promoter' => "users#promoter"
+
   resources :deals
 
-  resources :promoters
-
   resources :deal_types
-
-  resources :businesses
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

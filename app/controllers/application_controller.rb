@@ -13,8 +13,8 @@ class ApplicationController < ActionController::Base
   private
 
   def init_common_params
-    if current_user.is_a? User
-      @role = "User"
+    if current_business.nil?
+      @role = "Promoter"
       @header_title = "Promoter"
     else
       @role = "Business"

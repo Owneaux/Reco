@@ -1,4 +1,6 @@
 <ul data-role="listview" data-inset="true">
-    <li><a href="#">Profile</a></li>
+    <li><a href="<%= edit_business_registration_path %>">Profile</a></li>
     <li><a href="<%= deal_types_path %>">Deal types</a></li>
 </ul>
+
+<%= link_to "Cancel my account", cancel_business_registration_path, class: "ui-btn ui-btn-info ui-corner-all" %>

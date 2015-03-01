@@ -10,13 +10,13 @@
   <body>
     <div class="my_container">
       <div data-role="page">
-        <% p "User class: " + current_user.class.to_s %>
-        <% p "BusinessUser class: " + current_business_user.class.to_s %>
+        <% p "Promoter class: " + current_promoter.class.to_s %>
+        <% p "Business class: " + current_business.class.to_s %>
         <div data-role="header" style="overflow:hidden;">
-          <% if @role == 'User' %>
-            <%= render('layouts/user/header_nav_bar.html.erb') %>
+          <% if @role == 'Promoter' %>
+            <%= render('layouts/promoter/header_nav_bar.html.erb') %>
           <% else %>
-            <%= render('layouts/business_user/header_nav_bar.html.erb') %>
+            <%= render('layouts/business/header_nav_bar.html.erb') %>
           <% end %>
           <% if defined? @subheader and @subheader == true %>
             <%= render("layouts/subheader_nav_bar.html.erb") %>
@@ -26,10 +26,10 @@
           <%= yield %>
         </div>
         <div data-role="footer" data-position="fixed">
-          <% if @role == 'User' %>
-            <%= render('layouts/user/bottom_nav_bar.html.erb') %>
+          <% if @role == 'Promoter' %>
+            <%= render('layouts/promoter/bottom_nav_bar.html.erb') %>
           <% else %>
-            <%= render('layouts/business_user/bottom_nav_bar.html.erb') %>
+            <%= render('layouts/business/bottom_nav_bar.html.erb') %>
           <% end %>
         </div>
       </div>

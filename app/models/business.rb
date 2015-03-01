@@ -1,4 +1,6 @@
 class Business < ActiveRecord::Base
-  has_many :deal_types
-  has_many :deals, through: deal_types
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable
 end
