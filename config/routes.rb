@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  devise_for :promoters
+  devise_for :businesses, controllers: { :registrations =>'businesses/registrations' }
+
   root to: 'welcome#index'
 
   get 'welcome/index' => 'welcome#index'
@@ -11,22 +14,11 @@ Rails.application.routes.draw do
 
   get 'business_promoters/index'
 
-
-  devise_for :business_users,
-              :controllers => { :registrations =>  "business_user/registrations" }
-  get 'business_users/business' => "business_users#business"
-
-  devise_for :users
-
-  get 'users/promoter' => "users#promoter"
+#   get 'users/promoter' => "users#promoter"
 
   resources :deals
 
-  resources :promoters
-
   resources :deal_types
-
-  resources :businesses
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

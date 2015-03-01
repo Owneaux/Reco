@@ -12,10 +12,10 @@
       <div data-role="page">
         <div data-role="header" style="overflow:hidden;">
           <% if params[:action] == 'edit' %>
-            <% if @role == 'User' %>
-              <%= render('layouts/user/header_nav_bar.html.erb') %>
+            <% if @role == 'Promoter' %>
+              <%= render('layouts/promoter/header_nav_bar.html.erb') %>
             <% else %>
-              <%= render('layouts/business_user/header_nav_bar.html.erb') %>
+              <%= render('layouts/business/header_nav_bar.html.erb') %>
             <% end %>
           <% end %>
         </div>
@@ -24,10 +24,10 @@
         </div>
         <div data-role="footer" data-position="fixed">
           <%  if params[:action] == 'edit' %>
-            <% if @role == 'User' %>
-              <%= render('layouts/user/bottom_nav_bar.html.erb') %>
+            <% if @role == 'Promoter' %>
+              <%= render('layouts/promoter/bottom_nav_bar.html.erb') %>
             <% else %>
-              <%= render('layouts/business_user/bottom_nav_bar.html.erb') %>
+              <%= render('layouts/business/bottom_nav_bar.html.erb') %>
             <% end %>
           <% end %>
         </div>
