@@ -3,7 +3,7 @@
     <div class="deal_type">
       <ul data-role="listview" data-inset="true">
         <li>
-          <a href=<%= deal_types_path + '?source_view=new_deal' %>><%= @deal_type_name %></a>
+          <a href=<%= deal_types_path + @query_params %>><%= @deal_type_name %></a>
         </li>
       </ul>
       <input type="hidden" name="deal[deal_type_id]" value="<%= @deal_type_id %>"/>
@@ -11,7 +11,7 @@
     <div class="promoter">
       <ul data-role="listview" data-inset="true">
         <li>
-          <a href="<%= business_promoters_index_path + '?source_view=new_deal' %>">
+          <a href=<%= business_promoters_index_path + @query_params %>>
           <% if @promoter_picture.nil? %>
             <%= image_tag("default_avatar.png") %>
           <% else %>

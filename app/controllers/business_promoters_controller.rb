@@ -14,6 +14,11 @@ class BusinessPromotersController < ApplicationController
       text: "",
       icon: "ui-btn-right ui-icon-fa-plus ui-btn-icon-notext ui-corner-all"
     }
+    if params[:deal_type_id]
+      @query_string = "?deal_type_id=" + params[:deal_type_id]
+    else
+      @query_string = "?"
+    end
   end
 
   def new
