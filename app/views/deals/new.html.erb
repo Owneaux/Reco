@@ -1,3 +1,28 @@
-<h1>New Deal</h1>
-
-<%= render 'form' %>
+<div data-role="main" class="ui-content">
+  <form method="post" action="<%= deals_path %>" data-ajax="false">
+    <div class="deal_type">
+      <ul data-role="listview" data-inset="true">
+        <li>
+          <a href=<%= deal_types_path + '?source_view=new_deal' %>><%= @deal_type_name %></a>
+        </li>
+      </ul>
+      <input type="hidden" name="deal[deal_type_id]" value="<%= @deal_type_id %>"/>
+    </div>
+    <div class="promoter">
+      <ul data-role="listview" data-inset="true">
+        <li>
+          <a href="<%= business_promoters_index_path + '?source_view=new_deal' %>">
+          <% if @promoter_picture.nil? %>
+            <%= image_tag("default_avatar.png") %>
+          <% else %>
+            <img src="<%= @promoter_picture %>">
+          <% end %>
+          <h2><%= @promoter_name%></h2>
+          </a>
+        </li>
+      </ul>
+      <input type="hidden" name="deal[promoter_id]" value="<%= @promoter_id %>"/>
+    </div>
+    <input type="submit" data-inline="false" value="Create">
+  </form>
+</div>
