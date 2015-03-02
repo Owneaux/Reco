@@ -1,7 +1,7 @@
 <ul data-role="listview">
   <% @deal_types.each do |deal_type| %>
     <li>
-      <% if !defined? @source_view %>
+      <% if @source_view.nil? %>
         <a href="<%= deal_types_path + '/' + deal_type.id.to_s + '/edit' %>"><%= deal_type.name %></a>
       <% else %>
         <a href="<%= new_deal_path + @query_string + '&deal_type_id=' + deal_type.id.to_s %>"><%= deal_type.name %></a>

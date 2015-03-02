@@ -1,7 +1,7 @@
 <ul data-role="listview" data-inset="false">
   <% @business_promoters.each do |promoter| %>
     <li>
-      <% if defined? @source_view %>
+      <% if !@source_view.nil? %>
         <a href="<%= new_deal_path + @query_string + '&promoter_id=' + promoter.id.to_s %>">
       <% else %>
         <a href="#">

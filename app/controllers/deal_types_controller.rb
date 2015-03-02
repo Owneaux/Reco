@@ -20,7 +20,11 @@ class DealTypesController < ApplicationController
     }
 
     @deal_types = current_business.deal_types
-    @query_string = "?promoter_id=" + params[:promoter_id]
+    if params[:promoter_id]
+      @query_string = "?promoter_id=" + params[:promoter_id]
+    else
+      @query_string = "?"
+    end
   end
 
   # GET /deal_types/1
