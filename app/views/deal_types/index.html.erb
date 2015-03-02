@@ -4,7 +4,7 @@
       <% if !defined? @source_view %>
         <a href="<%= deal_types_path + '/' + deal_type.id.to_s + '/edit' %>"><%= deal_type.name %></a>
       <% else %>
-        <a href="<%= new_deal_path + '?deal_type_id=' + deal_type.id.to_s %>"><%= deal_type.name %></a>
+        <a href="<%= new_deal_path + @query_string + '&deal_type_id=' + deal_type.id.to_s %>"><%= deal_type.name %></a>
       <% end %>
     </li>
   <% end %>

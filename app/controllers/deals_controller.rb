@@ -55,7 +55,14 @@ class DealsController < ApplicationController
       @deal_type_name = "Add a new deal type"
     end
 
-    @promoter = current_business.promoters.first
+    if params[:promoter_id]
+      @promoter = Promoter.find(params[:promoter_id])
+    end
+
+    if @promoter.nil?
+      @promoter = current_business.promoters.first
+    end
+
     if @promoter
       @promoter_id = @promoter.id
       @promoter_name = @promoter.name
@@ -64,6 +71,10 @@ class DealsController < ApplicationController
       @promoter_id = ""
       @promoter_name = "Add a new promoter"
     end
+
+    @query_params = "?source_view=new_deal" +
+                      "&promoter_id=" + @promoter_id.to_s +
+                      "&deal_type_id=" + @deal_type_id.to_s
   end
 
   # GET /deals/1/edit
