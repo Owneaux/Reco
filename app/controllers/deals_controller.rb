@@ -14,6 +14,21 @@ class DealsController < ApplicationController
     }
   end
 
+  def deal_types
+    @deal_types = current_business.deal_types
+    @subheader = true
+    @header_title = "Deal type"
+    @back_path = new_deal_path
+    @subheader_left_action = {
+      path: new_deal_type_path,
+      text: "",
+      icon: "ui-btn-right ui-icon-fa-plus ui-btn-icon-notext ui-corner-all"
+    }
+  end
+
+  def promoters
+  end
+
   # GET /deals/1
   # GET /deals/1.json
   def show
@@ -23,6 +38,32 @@ class DealsController < ApplicationController
   def new
     @deal = Deal.new
     @back_path = deals_path
+
+    if params[:deal_type_id]
+      @deal_type = DealType.find(params[:deal_type_id])
+    end
+
+    if @deal_type.nil?
+      @deal_type = current_business.deal_types.first
+    end
+
+    if @deal_type
+      @deal_type_id = @deal_type.id
+      @deal_type_name = @deal_type.name
+    else
+      @deal_type_id = ""
+      @deal_type_name = "Add a new deal type"
+    end
+
+    @promoter = current_business.promoters.first
+    if @promoter
+      @promoter_id = @promoter.id
+      @promoter_name = @promoter.name
+      @promoter_picture = @promoter.picture
+    else
+      @promoter_id = ""
+      @promoter_name = "Add a new promoter"
+    end
   end
 
   # GET /deals/1/edit

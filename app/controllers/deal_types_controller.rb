@@ -4,15 +4,22 @@ class DealTypesController < ApplicationController
   # GET /deal_types
   # GET /deal_types.json
   def index
-    @deal_types = DealType.all
+    @source_view = params[:source_view]
+
     @subheader = true
     @header_title = "Deal type"
-    @back_path = settings_index_path
+    if @source_view == 'new_deal'
+      @back_path = new_deal_path
+    else
+      @back_path = settings_index_path
+    end
     @subheader_left_action = {
       path: new_deal_type_path,
       text: "",
       icon: "ui-btn-right ui-icon-fa-plus ui-btn-icon-notext ui-corner-all"
     }
+
+    @deal_types = current_business.deal_types
   end
 
   # GET /deal_types/1
@@ -37,6 +44,7 @@ class DealTypesController < ApplicationController
   # POST /deal_types.json
   def create
     @deal_type = DealType.new(deal_type_params)
+    @deal_type.business = current_business
 
     respond_to do |format|
       if @deal_type.save

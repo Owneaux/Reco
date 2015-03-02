@@ -2,8 +2,13 @@ class BusinessPromotersController < ApplicationController
   before_action :set_business_promoters, only: [:index]
 
   def index
+    @source_view = params[:source_view]
+
     @header_title = "Promoters"
     @subheader = true
+    if @source_view == 'new_deal'
+      @back_path = new_deal_path
+    end
     @subheader_left_action = {
       path: business_promoters_new_path,
       text: "",
