@@ -8,7 +8,8 @@ Rails.application.routes.draw do
   get 'welcome/index' => 'welcome#index'
   get 'welcome/sign_process' => 'welcome#sign_process'
 
-  get 'settings/index'
+  # Untoggle when settings were added again
+  # get 'settings/index'
 
   get 'home/index' => 'home#index'
 
@@ -19,7 +20,9 @@ Rails.application.routes.draw do
 
   resources :deals
 
-  resources :deal_types
+  #resources :deal_types
+  get 'deal_types/edit' => 'deal_types#edit'
+  post 'deal_types/update' => 'deal_types#update'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

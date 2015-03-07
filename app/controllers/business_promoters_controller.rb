@@ -33,8 +33,9 @@ class BusinessPromotersController < ApplicationController
     else
       @city = current_business.city
     end
-
-    @promoters = Promoter.where(city_id: @city.id)
+    @promoters = Promoter
+          .joins('LEFT JOIN business_promoters ON promoters.id = business_promoters.promoter_id')
+          .where(city_id: current_business.city_id, business_promoters: {id: nil})
   end
 
   def create

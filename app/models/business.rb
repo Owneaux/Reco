@@ -4,7 +4,7 @@ class Business < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :deal_types
+  has_one :deal_type
   has_many :deals, through: :deal_types
   has_many :business_promoters
   has_many :promoters, through: :business_promoters

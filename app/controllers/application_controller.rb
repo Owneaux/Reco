@@ -6,7 +6,6 @@ class ApplicationController < ActionController::Base
   before_action :init_common_params
 
   def after_sign_in_path_for(resource)
-    p resource
     request.env['omniauth.origin'] || stored_location_for(resource) || home_index_path
   end
 
