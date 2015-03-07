@@ -10,6 +10,6 @@ class Businesses::RegistrationsController < Devise::RegistrationsController
   private
 
   def account_update_params
-    params.require(:business).permit(:email, :password, :password_confirmation, :current_password, :city)
+    params.require(:business).permit(:email, :password, :password_confirmation, :current_password, :name, :description, :address, :phone)
   end
 end

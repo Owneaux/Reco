@@ -1,7 +1,0 @@
-<ul data-role="listview" data-autodividers="true" data-filter="true" data-inset="false">
-  <% @city_list.each do |city| %>
-    <li>
-    <a href=<%= business_promoters_new_path + '?city_id=' + city.id.to_s %>><%= city.name %></a>
-    </li>
-  <% end %>
-</ul>

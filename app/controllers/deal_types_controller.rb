@@ -17,8 +17,6 @@ class DealTypesController < ApplicationController
     p @deal_type
   end
 
-  # PATCH/PUT /deal_types/1
-  # PATCH/PUT /deal_types/1.json
   def update
     @deal_type.update_attributes(deal_type_params)
     redirect_to home_index_path

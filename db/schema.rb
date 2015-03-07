@@ -42,21 +42,11 @@ ActiveRecord::Schema.define(version: 20150301213455) do
     t.string   "name"
     t.string   "address"
     t.string   "phone"
-    t.string   "picture"
-    t.integer  "city_id"
+    t.string   "description"
   end
 
-  add_index "businesses", ["city_id"], name: "index_businesses_on_city_id", using: :btree
   add_index "businesses", ["email"], name: "index_businesses_on_email", unique: true, using: :btree
   add_index "businesses", ["reset_password_token"], name: "index_businesses_on_reset_password_token", unique: true, using: :btree
-
-  create_table "cities", force: :cascade do |t|
-    t.string   "name"
-    t.string   "country"
-    t.string   "geo_city_code"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-  end
 
   create_table "deal_types", force: :cascade do |t|
     t.string   "name"
@@ -97,19 +87,15 @@ ActiveRecord::Schema.define(version: 20150301213455) do
     t.string   "name"
     t.string   "picture"
     t.string   "phone"
-    t.integer  "city_id"
   end
 
-  add_index "promoters", ["city_id"], name: "index_promoters_on_city_id", using: :btree
   add_index "promoters", ["email"], name: "index_promoters_on_email", unique: true, using: :btree
   add_index "promoters", ["reset_password_token"], name: "index_promoters_on_reset_password_token", unique: true, using: :btree
 
   add_foreign_key "business_promoters", "businesses"
   add_foreign_key "business_promoters", "promoters"
-  add_foreign_key "businesses", "cities"
   add_foreign_key "deal_types", "businesses"
   add_foreign_key "deals", "businesses"
   add_foreign_key "deals", "deal_types"
   add_foreign_key "deals", "promoters"
-  add_foreign_key "promoters", "cities"
 end

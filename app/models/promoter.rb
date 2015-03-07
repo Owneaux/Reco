@@ -7,6 +7,4 @@ class Promoter < ActiveRecord::Base
   has_many :business_promoters
   has_many :business, through: :business_promoters
   has_many :deals
-
-  belongs_to :city
 end

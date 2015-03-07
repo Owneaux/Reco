@@ -3,9 +3,6 @@ class AddColumnsToBusinesses < ActiveRecord::Migration
     add_column :businesses, :name, :string
     add_column :businesses, :address, :string
     add_column :businesses, :phone, :string
-    add_column :businesses, :picture, :string
-
-    add_reference :businesses, :city, index: true
-    add_foreign_key :businesses, :cities
+    add_column :businesses, :description, :string
   end
 end

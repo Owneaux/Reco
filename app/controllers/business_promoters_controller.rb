@@ -22,20 +22,13 @@ class BusinessPromotersController < ApplicationController
   end
 
   def new
-    @deal_type = BusinessPromoter.new
-
-    # presentation
     @header_title = "Search promoter"
     @back_path = business_promoters_index_path
 
-    if params[:city_id]
-      @city = City.find(params[:city_id])
-    else
-      @city = current_business.city
-    end
     @promoters = Promoter
           .joins('LEFT JOIN business_promoters ON promoters.id = business_promoters.promoter_id')
-          .where(city_id: current_business.city_id, business_promoters: {id: nil})
+          .where(business_promoters: {id: nil}).order(:name)
+
   end
 
   def create
@@ -50,11 +43,6 @@ class BusinessPromotersController < ApplicationController
         # TODO send error
       end
     end
-  end
-
-  def city_list
-    @back_path = business_promoters_new_path
-    @city_list = City.order(:name)
   end
 
   private

@@ -6,13 +6,6 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-city = City.create(
-  name: 'Amsterdam',
-  country: 'Netherland',
-  geo_city_code: '3406'
-)
-city.save
-
 deal_type = DealType.create(
   name: '',
   description: '',
@@ -25,7 +18,6 @@ deal_type.save
     name: Faker::Name.name,
     email: Faker::Internet.email,
     phone: Faker::PhoneNumber.cell_phone,
-    city_id: 1,
     password: '11111111'
   )
   promoter.save

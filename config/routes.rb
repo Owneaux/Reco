@@ -16,7 +16,6 @@ Rails.application.routes.draw do
   get 'business_promoters/index' => "business_promoters#index"
   get 'business_promoters/new' => "business_promoters#new"
   get 'business_promoters/create' => "business_promoters#create"
-  get 'business_promoters/city_list' => "business_promoters#city_list"
 
   resources :deals
 
