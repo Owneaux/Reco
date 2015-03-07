@@ -2,23 +2,13 @@ class BusinessPromotersController < ApplicationController
   before_action :set_business_promoters, only: [:index]
 
   def index
-    @source_view = params[:source_view]
-
     @header_title = "Promoters"
     @subheader = true
-    if @source_view == 'new_deal'
-      @back_path = new_deal_path
-    end
     @subheader_left_action = {
       path: business_promoters_new_path,
       text: "",
       icon: "ui-btn-right ui-icon-fa-plus ui-btn-icon-notext ui-corner-all"
     }
-    if params[:deal_type_id]
-      @query_string = "?deal_type_id=" + params[:deal_type_id]
-    else
-      @query_string = "?"
-    end
   end
 
   def new

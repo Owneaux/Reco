@@ -1,0 +1,30 @@
+.business-profile {
+  text-align: center;
+  .header-info-container {
+    margin-bottom: 30px;
+  }
+  .report-info-container {
+    position: absolute;
+    bottom: 50px;
+    width: 100%;
+    margin: auto 0;
+    .report-info-badget {
+      background-color: #F0F0F0;
+      opacity: 0.9;
+      border-radius: 50%;
+      display: inline-block;
+      margin-right: 10px;
+      width: 80px;
+      height: 80px;
+      text-align: center;
+      .badget-value {
+        position: relative;
+        top: 35px;
+      }
+      .badget-title {
+        position: relative;
+        bottom: -70px;
+      }
+    }
+  }
+}

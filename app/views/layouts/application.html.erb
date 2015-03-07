@@ -8,28 +8,27 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
-    <div class="my_container">
-      <div data-role="page" id="main-page">
-        <div data-role="header" style="overflow:hidden;">
-          <% if @role == 'Promoter' %>
-            <%= render('layouts/promoter/header_nav_bar.html.erb') %>
-          <% else %>
-            <%= render('layouts/business/header_nav_bar.html.erb') %>
-          <% end %>
-          <% if defined? @subheader and @subheader == true %>
-            <%= render("layouts/subheader_nav_bar.html.erb") %>
-          <% end %>
-        </div>
-        <div data-role="content">
-          <%= yield %>
-        </div>
-        <div data-role="footer" data-position="fixed">
-          <% if @role == 'Promoter' %>
-            <%= render('layouts/promoter/bottom_nav_bar.html.erb') %>
-          <% else %>
-            <%= render('layouts/business/bottom_nav_bar.html.erb') %>
-          <% end %>
-        </div>
+    <div data-role="page" id="main-page" data-dom-cache-"true">
+      <div data-role="header" style="overflow:hidden;">
+        <% if @role == 'Promoter' %>
+          <%= render('layouts/promoter/header_nav_bar.html.erb') %>
+        <% else %>
+          <%= render('layouts/business/header_nav_bar.html.erb') %>
+        <% end %>
+        <% if defined? @subheader and @subheader == true %>
+          <%= render("layouts/subheader_nav_bar.html.erb") %>
+        <% end %>
       </div>
+      <div data-role="content">
+        <%= yield %>
+      </div>
+      <div data-role="footer" data-position="fixed">
+        <% if @role == 'Promoter' %>
+          <%= render('layouts/promoter/bottom_nav_bar.html.erb') %>
+        <% else %>
+          <%= render('layouts/business/bottom_nav_bar.html.erb') %>
+        <% end %>
+      </div>
+    </div>
   </body>
 </html>

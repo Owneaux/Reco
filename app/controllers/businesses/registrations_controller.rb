@@ -1,5 +1,6 @@
 class Businesses::RegistrationsController < Devise::RegistrationsController
   def edit
+    @back_path =  businesses_show_path
     super
   end
 

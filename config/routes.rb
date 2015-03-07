@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
 
+  get 'business/show'
+
   devise_for :promoters
   devise_for :businesses, controllers: { :registrations =>'businesses/registrations' }
+
+  get 'businesses/show' => 'business#show'
 
   root to: 'welcome#index'
 

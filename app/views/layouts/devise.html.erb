@@ -8,29 +8,28 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
-    <div class="my_container">
-      <div data-role="page">
-        <div data-role="header" style="overflow:hidden;">
-          <% if params[:action] == 'edit' %>
-            <% if @role == 'Promoter' %>
-              <%= render('layouts/promoter/header_nav_bar.html.erb') %>
-            <% else %>
-              <%= render('layouts/business/header_nav_bar.html.erb') %>
-            <% end %>
+    <div data-role="page" data-dom-cache-"true">
+      <div data-role="header" style="overflow:hidden;">
+        <% if params[:action] == 'edit' %>
+          <% if @role == 'Promoter' %>
+            <%= render('layouts/promoter/header_nav_bar.html.erb') %>
+          <% else %>
+            <%= render('layouts/business/header_nav_bar.html.erb') %>
           <% end %>
-        </div>
-        <div data-role="content">
-          <%= yield %>
-        </div>
-        <div data-role="footer" data-position="fixed">
-          <%  if params[:action] == 'edit' %>
-            <% if @role == 'Promoter' %>
-              <%= render('layouts/promoter/bottom_nav_bar.html.erb') %>
-            <% else %>
-              <%= render('layouts/business/bottom_nav_bar.html.erb') %>
-            <% end %>
-          <% end %>
-        </div>
+        <% end %>
       </div>
+      <div data-role="content">
+        <%= yield %>
+      </div>
+      <div data-role="footer" data-position="fixed">
+        <%  if params[:action] == 'edit' %>
+          <% if @role == 'Promoter' %>
+            <%= render('layouts/promoter/bottom_nav_bar.html.erb') %>
+          <% else %>
+            <%= render('layouts/business/bottom_nav_bar.html.erb') %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
   </body>
 </html>

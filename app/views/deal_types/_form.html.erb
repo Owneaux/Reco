@@ -1,15 +1,15 @@
 <form action="<%= deal_types_update_path %>" method="post" class="ui-body ui-body-a ui-corner-all">
   <fieldset>
     <label for="name">Name:</label>
-    <input name="deal_type[name]" id="name" value="<%= @deal_type.name%>" type="text">
+    <input name="deal_type[name]" id="name" value="<%= @deal_type.name%>" type="text" autocomplete="off">
   </fieldset>
   <fieldset>
     <label for="description">Description:</label>
-    <input name="deal_type[description]" id="description" value="<%= @deal_type.description%>" type="text">
+    <input name="deal_type[description]" id="description" value="<%= @deal_type.description%>" type="text" autocomplete="off">
   </fieldset>
   <fieldset>
     <label for="commission">Commission:</label>
-    <input name="deal_type[commission]" id="commission" min="0" max="10" type="range"  step="0.5" value="<%= @deal_type.commission %>">
+    <input name="deal_type[commission]" id="commission" min="0" max="10" type="range"  step="0.5" value="<%= @deal_type.commission %>" autocomplete="off">
   </fieldset>
   <button type="submit" name="submit" value="submit-value" class="btn btn-default btn-sign-process">Save</button>
 </form>
