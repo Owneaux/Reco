@@ -6,7 +6,7 @@ class BusinessController < ApplicationController
     @promoters = current_business.promoters.size
 
     @subheader = true
-    @subheader_left_action = {
+    @subheader_right_action = {
       path:  edit_business_registration_path,
       text: "",
       icon: "ui-btn-right ui-icon-edit ui-btn-icon-notext ui-corner-all"

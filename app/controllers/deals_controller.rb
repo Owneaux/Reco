@@ -7,7 +7,7 @@ class DealsController < ApplicationController
     @deals = Deal.all
     @subheader = true
     @header_title = "Deals"
-    @subheader_left_action = {
+    @subheader_right_action = {
       path: new_deal_path,
       text: "",
       icon: "ui-btn-right ui-icon-fa-plus ui-btn-icon-notext ui-corner-all"
@@ -19,7 +19,7 @@ class DealsController < ApplicationController
     @subheader = true
     @header_title = "Deal type"
     @back_path = new_deal_path
-    @subheader_left_action = {
+    @subheader_right_action = {
       path: new_deal_type_path,
       text: "",
       icon: "ui-btn-right ui-icon-fa-plus ui-btn-icon-notext ui-corner-all"

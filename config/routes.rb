@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   get 'business_promoters/index' => "business_promoters#index"
   get 'business_promoters/new' => "business_promoters#new"
   get 'business_promoters/create' => "business_promoters#create"
+  delete 'business_promoters/:id' => "business_promoters#destroy"
 
   resources :deals
 

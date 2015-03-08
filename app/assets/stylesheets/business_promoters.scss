@@ -1,11 +1,15 @@
-.promoters_container {
-  .ui-listview {
-    margin-top: 0px;
-    .ui-li-has-thumb {
-      height: 58px;
-    }
+.business-promoter-container {
+
+  .ui-li-has-thumb {
     img {
-      height: 56px;
+      height: 24px;
+      margin-top: 15px;
+      margin-left: 10px;
+      z-index: 10;
+      cursor: pointer;
+    }
+    .ui-btn {
+      padding-left: 40px;
     }
   }
 }
