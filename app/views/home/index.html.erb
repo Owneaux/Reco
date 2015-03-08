@@ -1,3 +1,56 @@
-<div class="home_container">
-  <p>We will list here the deals for today</p>
+<div class="dashboard-container">
+  <ul data-role="listview" data-filter="true" data-filter-placeholder="Search..." data-inset="false">
+    <% @business_promoters.each do |promoter| %>
+      <li>
+        <input type="hidden" value="<%= promoter.id %>" id="promoter_id"/>
+        <div class="promoter-name">
+          <h3><%= promoter.name %></h3>
+        </div>
+        <div class="count-widget">
+          <div class="img-minus">
+            <%= image_tag('less-icon.png') %>
+          </div>
+          <div class="referrals-value">
+            <p>0</p>
+          </div>
+          <div class="img-plus">
+            <%= image_tag('more-icon.png') %>
+          </div>
+        </div>
+        <div class="resume-widget">
+          <div class="referrals-total">
+            <p><%= @referrals_total %></p>
+          </div>
+          <div class="img-check">
+            <%= image_tag('previous2-icon.png') %>
+          </div>
+        </div>
+      </li>
+    <% end %>
+  </ul>
 </div>
+
+<script>
+  $(function() {
+    // function init_count_widgets() {
+    //   alert('init_widgets');
+    //   var img_minus_elem_list = $('.ui-li-has-thumb img-minus img');
+    //   // var img_plus_elem_list = $('.ui-li-has-thumb img-plus img');
+    //   // var i = 0;
+    //   // for (i; i < img_minus_elem_list.length; i++) {
+    //   //   var img = img_minus_elem_list[i];
+    //   //   $(img).click(function(event) {
+    //   //     alert('minus')
+    //   //   }
+    //   // }
+
+    //   // for (i; i < img_plus_elem_list.length; i++) {
+    //   //   var img = img_plus_elem_list[i];
+    //   //   $(img).click(function(event) {
+    //   //     alert('plus')
+    //   //   }
+    //   // }
+    // }
+    // init_count_widgets();
+  });
+</script>
