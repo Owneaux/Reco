@@ -1,14 +1,9 @@
-<div class="promoters_container">
+<div class="business-promoter-container">
   <ul data-role="listview" data-filter="true" data-filter-placeholder="Search..." data-inset="false">
     <% @promoters.each do |promoter| %>
       <li data-icon="fa-plus">
         <a href="<%= business_promoters_create_path + '?promoter_id=' + promoter.id.to_s %>">
-          <% if promoter.picture.nil? %>
-            <%= image_tag("default_avatar.png") %>
-          <% else %>
-            <img src="<%= promoter.picture %>">
-          <% end %>
-          <h2><%= promoter.name%></h2>
+        <h2><%= promoter.name%></h2>
         </a>
       </li>
     <% end %>

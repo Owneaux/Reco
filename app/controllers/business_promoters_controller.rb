@@ -4,10 +4,16 @@ class BusinessPromotersController < ApplicationController
   def index
     @header_title = "Promoters"
     @subheader = true
-    @subheader_left_action = {
+    @subheader_right_action = {
       path: business_promoters_new_path,
       text: "",
       icon: "ui-btn-right ui-icon-fa-plus ui-btn-icon-notext ui-corner-all"
+    }
+
+    @subheader_left_action = {
+      path: "",
+      text: "Delete",
+      icon: "ui-btn-left ui-icon-delete ui-btn-icon-notext ui-corner-all btn-delete-promoter"
     }
   end
 
@@ -19,6 +25,15 @@ class BusinessPromotersController < ApplicationController
           .joins('LEFT JOIN business_promoters ON promoters.id = business_promoters.promoter_id')
           .where(business_promoters: {id: nil}).order(:name)
 
+  end
+
+  def destroy
+    business_promoter_rcd = BusinessPromoter.where(promoter_id: params[:id]).where(business_id: current_business.id)
+    if business_promoter_rcd.size > 0
+        business_promoter = business_promoter_rcd.first
+        business_promoter.destroy
+        render nothing: true, status: 200
+    end
   end
 
   def create
