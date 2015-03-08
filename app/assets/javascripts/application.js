@@ -17,7 +17,7 @@
 //= require jquery.mobile
 //= require jqm-spinbox
 //= require growl
-//= require_tree .
+// require_tree .
 
 $(function(){
 

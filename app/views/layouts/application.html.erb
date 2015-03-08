@@ -5,10 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
+    <%= controller_assets %>
+    <%= views_assets %>
     <%= csrf_meta_tags %>
   </head>
   <body>
-    <div data-role="page" id="main-page" data-dom-cache-"true">
+    <div data-role="page" id="main-page">
       <div data-role="header" style="overflow:hidden;">
         <% if @role == 'Promoter' %>
           <%= render('layouts/promoter/header_nav_bar.html.erb') %>
@@ -30,5 +33,6 @@
         <% end %>
       </div>
     </div>
+    <%= yield(:after_js) %>
   </body>
 </html>
