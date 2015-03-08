@@ -11,7 +11,7 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
-    <div data-role="page" id="main-page">
+    <div data-role="page" id="main-page" data-ajax="false">
       <div data-role="header" style="overflow:hidden;">
         <% if @role == 'Promoter' %>
           <%= render('layouts/promoter/header_nav_bar.html.erb') %>
