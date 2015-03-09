@@ -1,5 +1,5 @@
 $(function() {
-  alert('loading business_promoters');
+  //alert('loading business_promoters');
   $('.btn-delete-promoter').click(function(event) {
     var button = event.target;
     var button_class = $(this).attr("class");

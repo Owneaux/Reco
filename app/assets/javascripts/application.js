@@ -30,7 +30,6 @@ $(function() {
       // script.src = '/path/to/new/include.js';
       // var s = document.getElementsByTagName('script')[0];
       // s.parentNode.insertBefore(script, s);
-  })();
-});
-
+    })();
+  });
 });
