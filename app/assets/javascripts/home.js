@@ -93,18 +93,6 @@ $(function(){
     }
     set_value_count(item_list, count_value);
   }
-
-  // function modify_count_value(img, increment) {
-  //   var count_value = get_value_count(img);
-  //   if (increment) {
-  //     count_value = count_value + 1;
-  //   } else {
-  //     if (count_value > 0) {
-  //       count_value = count_value - 1;
-  //     }
-  //   }
-  //   set_value_count(img, count_value);
-  // }
   init_widgets();
 
 });
