@@ -5,8 +5,6 @@ Rails.application.routes.draw do
   devise_for :promoters
   devise_for :businesses, controllers: { :registrations =>'businesses/registrations' }
 
-  get 'businesses/show' => 'business#show'
-
   root to: 'welcome#index'
 
   get 'welcome/index' => 'welcome#index'
@@ -22,6 +20,8 @@ Rails.application.routes.draw do
   get 'business_promoters/new' => "business_promoters#new"
   get 'business_promoters/create' => "business_promoters#create"
   delete 'business_promoters/:id' => "business_promoters#destroy"
+  get 'business_promoters/create' => "business_promoters#create"
+  get 'business_promoters/:id' => "business_promoters#show", as: :business_promoters
 
   resources :deals
 

@@ -27,6 +27,12 @@ class BusinessPromotersController < ApplicationController
 
   end
 
+  def show
+    promoter = Promoter.find(params[:id])
+    @header_title = promoter.name
+    @deals = Deal.where(promoter_id: params[:id])
+  end
+
   def destroy
     business_promoter_rcd = BusinessPromoter.where(promoter_id: params[:id]).where(business_id: current_business.id)
     if business_promoter_rcd.size > 0
