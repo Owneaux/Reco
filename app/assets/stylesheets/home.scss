@@ -6,8 +6,9 @@
         cursor: pointer;
       }
       .promoter-name {
-        width: 120px;
+        width: 100px;
         float:left;
+        font-size: 14px;
       }
       .count-widget {
         padding-left: 10px;
@@ -21,7 +22,7 @@
         .img-minus {
           float:left;
           margin-right: 5px;
-          margin-left: 15px;
+          margin-left: 5px;
         }
         .img-plus {
           float:left;
@@ -33,12 +34,12 @@
         .referrals-total {
           float:left;
           font-size: 20px;
-          font-weight: 500;
+          font-weight: 700;
         }
         .img-check {
           img {
             height: 32px;
-            margin-left: 25px;
+            margin-left: 10px;
           }
           float:right;
         }

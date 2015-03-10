@@ -1,6 +1,6 @@
 <div class="welcome-container">
   <div class="sign-up-container">
-    <form action="<%= welcome_sign_process_path %>" method="get">
+    <%= form_tag(welcome_sign_process_path, method: 'get') do %>
       <fieldset data-role="controlgroup" data-type="horizontal" id="role">
         <input name="role_option" id="business-signup" value="business" checked="checked" type="radio">
         <label for="business-signup">Business</label>
@@ -15,6 +15,7 @@
               Login
           <% end %>
       </div>
-    </form>
+    <!-- </form> -->
+    <% end %>
   </div>
 </div>

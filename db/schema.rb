@@ -63,10 +63,11 @@ ActiveRecord::Schema.define(version: 20150309075550) do
     t.integer  "deal_type_id"
     t.integer  "promoter_id"
     t.integer  "business_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
     t.integer  "referrals"
-    t.boolean  "paid"
+    t.boolean  "paid",         default: false
+    t.date     "paid_at"
   end
 
   add_index "deals", ["business_id"], name: "index_deals_on_business_id", using: :btree

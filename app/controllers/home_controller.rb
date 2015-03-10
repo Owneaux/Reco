@@ -1,9 +1,9 @@
 class HomeController < ApplicationController
   before_action :set_business_promoters, only: [:index]
+  before_action :set_deal_type, only: [:index, :check_out_referrals]
 
   def index
     @header_title = "Today's referrals"
-    @deal_type = DealType.all.first
     @deals_rcd = Deal.where(business_id: current_business.id).where("created_at >= ?", Time.zone.now.beginning_of_day)
   end
 
@@ -12,7 +12,6 @@ class HomeController < ApplicationController
     referrals = params[:referrals]
     deal_rcd = Deal.where(promoter_id: promoter_id).where(business_id: current_business.id).where("created_at >= ?", Time.zone.now.beginning_of_day)
     if deal_rcd.size == 0
-      @deal_type = DealType.all.first
       deal = Deal.create(
         promoter_id: promoter_id,
         business_id: current_business.id,
@@ -28,6 +27,20 @@ class HomeController < ApplicationController
   end
 
   private
+
+    def set_deal_type
+      @deal_type = current_business.deal_type
+      if @deal_type.nil?
+        @deal_type = DealType.create(
+        name: '',
+        commission: 0.0,
+        description: '',
+        business_id: current_business.id
+        )
+        @deal_type.save
+      end
+    end
+
     def set_business_promoters
       @business_promoters = current_business.promoters
     end

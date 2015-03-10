@@ -60,6 +60,7 @@
         $(img).click(function(event) {
           var item_list = $(this).closest('.ui-li-static');
           modify_count_value(item_list, false);
+          event.preventDefault();
         });
       }
       i = 0;
@@ -69,6 +70,7 @@
         $(img).click(function(event) {
           var item_list = $(this).closest('.ui-li-static');
           modify_count_value(item_list, true);
+          event.preventDefault();
         });
       }
 
@@ -77,6 +79,7 @@
         var img = img_check_elem_list[i];
         $(img).unbind('click');
         $(img).click(function(event) {
+          event.preventDefault();
           var item_list = $(this).closest('.ui-li-static');
           var count_val = get_value_count(item_list);
           var promoter_id = get_promoter_id($(this));

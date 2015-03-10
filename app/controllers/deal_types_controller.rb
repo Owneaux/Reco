@@ -4,17 +4,7 @@ class DealTypesController < ApplicationController
 
   # GET /deal_type/edit
   def edit
-    if @deal_type.nil?
-      @deal_type = DealType.create(
-        name: '',
-        commission: 0.0,
-        description: '',
-        business_id: current_business.id
-        )
-      @deal_type.save
-    end
     @header_title = "Deal"
-    p @deal_type
   end
 
   def update
@@ -25,6 +15,15 @@ class DealTypesController < ApplicationController
   private
     def set_deal_type
       @deal_type = current_business.deal_type
+      if @deal_type.nil?
+        @deal_type = DealType.create(
+        name: '',
+        commission: 0.0,
+        description: '',
+        business_id: current_business.id
+        )
+        @deal_type.save
+      end
     end
     def deal_type_params
       params.require(:deal_type).permit(:name, :commission, :description)

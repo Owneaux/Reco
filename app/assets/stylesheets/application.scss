@@ -20,5 +20,13 @@
 @import "home";
 @import "welcome";
 @import "business_promoters";
-@import "business"
+@import "business";
+
+.ui-page {
+  .ui-header {
+    .ui-btn {
+      padding: 15px;
+    }
+  }
+}
 

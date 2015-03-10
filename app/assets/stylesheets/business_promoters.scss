@@ -1,5 +1,4 @@
 .business-promoter-container {
-
   .ui-li-has-thumb {
     img {
       height: 24px;
@@ -11,6 +10,27 @@
     }
     .ui-btn {
       padding-left: 15px;
+    }
+  }
+}
+
+.business-promoter-deals-container {
+  .ui-listview {
+    .ui-li-static {
+      .referrals {
+        float:left;
+      }
+      .commission {
+        float:left;
+        margin-left: 150px;
+      }
+      .img-pay {
+        img {
+          height: 32px;
+          margin-left: 10px;
+        }
+        float:right;
+      }
     }
   }
 }

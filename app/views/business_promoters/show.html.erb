@@ -1,10 +1,20 @@
-<div class="business-promoter-container">
+<div class="business-promoter-deals-container">
   <ul data-role="listview" data-inset="false">
     <% @deals.each do |deal| %>
       <li>
-        <a href="#">
+        <div class="referrals">
+          <h3><%= deal.referrals %> x</h3>
+        </div>
+        <div class="commission">
+          <h3><%= deal.deal_type.commission %> €</h3>
+        </div>
+        <% if deal.paid %>
 
-        </a>
+        <% else %>
+          <div class="img-pay">
+            <%= image_tag('previous2-icon.png') %>
+          </div>
+        <% end %>
       </li>
     <% end %>
   </ul>

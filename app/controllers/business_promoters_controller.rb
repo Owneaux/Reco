@@ -28,9 +28,11 @@ class BusinessPromotersController < ApplicationController
   end
 
   def show
+    @back_path = business_promoters_index_path
     promoter = Promoter.find(params[:id])
     @header_title = promoter.name
     @deals = Deal.where(promoter_id: params[:id])
+    p @deals
   end
 
   def destroy

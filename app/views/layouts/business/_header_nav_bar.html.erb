@@ -1,9 +1,6 @@
 <h1><%= @header_title %></h1>
-  <!-- <a href="#right-panel" data-icon="arrow-l" data-iconpos="notext" data-shadow="false" data-iconshadow="false" class=""></a> -->
-  <%#= link_to "", class: "ui-btn-right ui-btn-icon-no-text", data: { icon: "fa-sign-out", shadow: false, iconshadow: false } %>
-
-<%= link_to "Sign up", destroy_business_session_path, method: :delete, class: "ui-btn-right ui-btn-icon-no-text", data: { icon: "fa-sign-out" } %>
+<%= link_to "", destroy_business_session_path, method: :delete, class: "ui-btn-right ui-btn-icon-no-text", data: { icon: "fa-sign-out", mini: "true"} %>
 
 <% if @back_path %>
-  <%= link_to "Back", @back_path, class: "ui-btn-left ui-btn-icon-no-text", data: { icon: "fa-arrow-left" } %>
+  <%= link_to "", @back_path, class: "ui-btn-left ui-btn-icon-no-text", data: { icon: "fa-arrow-left", mini: "true" } %>
 <% end %>
