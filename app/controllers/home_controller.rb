@@ -4,13 +4,13 @@ class HomeController < ApplicationController
 
   def index
     @header_title = "Today's referrals"
-    @deals_rcd = Deal.where(business_id: current_business.id).where("created_at >= ?", Time.zone.now.beginning_of_day)
+    @deals_rcd = Deal.where(business_id: current_business.id).where("created_at >= ? AND paid = ?", Time.zone.now.beginning_of_day, false)
   end
 
   def check_out_referrals
     promoter_id = params[:promoter]
     referrals = params[:referrals]
-    deal_rcd = Deal.where(promoter_id: promoter_id).where(business_id: current_business.id).where("created_at >= ?", Time.zone.now.beginning_of_day)
+    deal_rcd = Deal.where(promoter_id: promoter_id).where(business_id: current_business.id).where("created_at >= ? AND paid = ?", Time.zone.now.beginning_of_day, false)
     if deal_rcd.size == 0
       deal = Deal.create(
         promoter_id: promoter_id,
