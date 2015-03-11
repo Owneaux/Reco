@@ -24,7 +24,6 @@ class BusinessPromotersController < ApplicationController
     @promoters = Promoter
           .joins('LEFT JOIN business_promoters ON promoters.id = business_promoters.promoter_id')
           .where(business_promoters: {id: nil}).order(:name)
-
   end
 
   def show
@@ -33,6 +32,18 @@ class BusinessPromotersController < ApplicationController
     @header_title = promoter.name
     @deals = Deal.where(promoter_id: params[:id])
     p @deals
+  end
+
+  def checkout
+    deal_id = params[:id]
+    if deal_id
+      deal = Deal.find(params[:id])
+      deal.paid = true
+      deal.paid_at = Time.now
+      deal.save
+    end
+
+    render nothing: true, status: 200
   end
 
   def destroy

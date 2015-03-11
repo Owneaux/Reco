@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   delete 'business_promoters/:id' => "business_promoters#destroy"
   get 'business_promoters/create' => "business_promoters#create"
   get 'business_promoters/:id' => "business_promoters#show", as: :business_promoters
+  get 'business_promoters/checkout/:id' => "business_promoters#checkout"
 
   resources :deals
 

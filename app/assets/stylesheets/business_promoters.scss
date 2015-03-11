@@ -24,10 +24,17 @@
         float:left;
         margin-left: 150px;
       }
+      .paid {
+        float: right;
+        font-size: 18px;
+        font-weight: 500;
+        padding-top: 5px;
+      }
       .img-pay {
         img {
           height: 32px;
           margin-left: 10px;
+          cursor: pointer;
         }
         float:right;
       }
