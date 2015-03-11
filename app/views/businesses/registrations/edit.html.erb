@@ -1,38 +1,32 @@
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= f.error_notification %>
-  <div data-role="tabs" id="tabs">
-    <div data-role="navbar">
-      <ul>
-        <li><a href="#basic_info" data-ajax="false">Basic info</a></li>
-        <li><a href="#credentials_info" data-ajax="false">Credentials</a></li>
-      </ul>
-    </div>
-    <div id="basic_info" class="ui-body-d ui-content">
-      <fieldset>
-        <label for="name">Name:</label>
-        <input name="business[name]" id="name" value="<%= @business.name%>" type="text" autofocus>
-      </fieldset>
-      <fieldset>
-        <label for="description">Description:</label>
-        <textarea cols="40" rows="4" name="business[description]" id="description"></textarea>
-      </fieldset>
-      <fieldset>
-        <label for="addres">Address:</label>
-        <input name="business[address]" id="address" value="<%= @business.address %>" type="text">
-      </fieldset>
-      <fieldset>
-        <label for="phone">Phone:</label>
-        <input name="business[phone]" id="phone" value="<%= @business.phone %>" class="string"/>
-      </fieldset>
-    </div>
-    <div id="credentials_info">
-      <fieldset>
-        <label class="email required" for="email">Email:</label>
-        <input name="business[email]" id="email" value="<%= @business.email %>" type="email"required="required" class="email string required"/>
-      </fieldset>
-      <%= f.input :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false %>
-      <%= f.input :password_confirmation, required: false %>
-    </div>
+  <div data-role="collapsible" data-collapsed="false">
+    <h4>Basic info</h4>
+    <fieldset>
+      <label for="name">Name:</label>
+      <input name="business[name]" id="name" value="<%= @business.name%>" type="text" autofocus>
+    </fieldset>
+    <fieldset>
+      <label for="description">Description:</label>
+      <textarea cols="40" rows="4" name="business[description]" id="description"></textarea>
+    </fieldset>
+    <fieldset>
+      <label for="addres">Address:</label>
+      <input name="business[address]" id="address" value="<%= @business.address %>" type="text">
+    </fieldset>
+    <fieldset>
+      <label for="phone">Phone:</label>
+      <input name="business[phone]" id="phone" value="<%= @business.phone %>" class="string"/>
+    </fieldset>
+  </div>
+  <div data-role="collapsible">
+    <h4>Credentials</h4>
+    <fieldset>
+      <label class="email required" for="email">Email:</label>
+      <input name="business[email]" id="email" value="<%= @business.email %>" type="email"required="required" class="email string required"/>
+    </fieldset> -->
+    <%= f.input :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false %>
+    <%= f.input :password_confirmation, required: false %>
   </div>
   <%= f.input :current_password, hint: "we need your current password to confirm your changes", required: true %>
   <div class="form-actions">
