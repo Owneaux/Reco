@@ -4,7 +4,9 @@
       <li>
         <input type="hidden" value="<%= promoter.id %>" id="promoter_id"/>
         <div class="promoter-name">
-          <h3><%= promoter.name %></h3>
+          <a href="/business_promoters/<%= promoter.id %>">
+            <h3><%= promoter.name %></h3>
+          </a>
         </div>
         <div class="count-widget">
           <div class="img-minus">
