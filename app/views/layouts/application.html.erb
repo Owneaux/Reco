@@ -12,7 +12,7 @@
   </head>
   <body>
     <div data-role="page" id="main-page" data-ajax="false">
-      <div data-role="header" style="overflow:hidden;">
+      <div data-role="header" data-tap-toggle="false" style="overflow:hidden;">
         <% if @role == 'Promoter' %>
           <%= render('layouts/promoter/header_nav_bar.html.erb') %>
         <% else %>
@@ -25,7 +25,7 @@
       <div data-role="content">
         <%= yield %>
       </div>
-      <div data-role="footer" data-position="fixed">
+      <div data-role="footer" data-tap-toggle="false" data-position="fixed">
         <% if @role == 'Promoter' %>
           <%= render('layouts/promoter/bottom_nav_bar.html.erb') %>
         <% else %>
