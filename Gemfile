@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 source 'https://rails-assets.org'
 
+ruby '2.2.0'
+
 gem 'devise'
 
 gem 'simple_form', '~> 3.1.0'

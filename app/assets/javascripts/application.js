@@ -21,15 +21,5 @@
 
 $(function() {
 
-  $(document).on('pageshow', 'div[data-role*="page"]', function () {
-    (function () {
-      // alert('pageshow');
-      // var script = document.createElement('script');
-      // script.type = 'text/javascript';
-      // script.async = true;
-      // script.src = '/path/to/new/include.js';
-      // var s = document.getElementsByTagName('script')[0];
-      // s.parentNode.insertBefore(script, s);
-    })();
-  });
+
 });
