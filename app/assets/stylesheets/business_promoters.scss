@@ -33,7 +33,7 @@
   .button-container {
     position: absolute;
     bottom: 50px;
-    margin-left:-120px;
+    margin-left:-140px;
     left:50%;
     width:280px;
     .btn-delete {
@@ -45,7 +45,7 @@
   .action-button-container {
     position: absolute;
     top: 450px;
-    margin-left:-120px;
+    margin-left:-140px;
     left:50%;
     width:280px;
     .btn-action {
@@ -59,3 +59,38 @@
 #credit .badget-value {
   color: #FF6B6B;
 }
+
+.payment-container {
+  text-align: center;
+  .report-info-container {
+    height: 200px;
+    width: 100%;
+    margin: auto 0;
+    font-weight: 500;
+    padding-top: 45px;
+    .report-info-badget {
+      background-color: #F0F0F0;
+      opacity: 0.9;
+      border-radius: 50%;
+      display: inline-block;
+      width: 120px;
+      height: 120px;
+      .badget-value {
+        position: relative;
+        top: 40px;
+        font-size: 30px;
+      }
+      .badget-title {
+        position: relative;
+        top: -75px;
+        font-size: 24px;
+      }
+    }
+  }
+  .payment-form {
+
+  }
+}
+
+
+

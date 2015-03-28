@@ -1,6 +1,7 @@
 <div class="dashboard-container">
   <ul data-role="listview" data-filter="true" data-filter-placeholder="Search..." data-inset="false">
-    <% @business_promoters.each do |promoter| %>
+    <% @promoters_data.each do |promoter_data| %>
+      <% promoter = promoter_data[:promoter] %>
       <li>
         <input type="hidden" value="<%= promoter.id %>" id="promoter_id"/>
         <div class="promoter-name">
@@ -15,17 +16,8 @@
             <%= image_tag('check-icon.png') %>
           </div>
         <div class="resume-widget">
-          <div class="referrals-total">
-            <% deal_rcd = @deals_rcd.where(promoter_id: promoter.id)
-              if deal_rcd.size > 0
-                deal = deal_rcd.first
-              end
-            %>
-            <% if deal %>
-              <p><%= deal.referrals %></p>
-            <% else %>
-              <p>0</p>
-            <% end %>
+          <div class="credit-total">
+            <p><%= promoter_data[:credit] %></p>
           </div>
         </div>
       </li>
@@ -62,8 +54,8 @@
             success: function (data, status) {
               if (status === 'success') {
                 set_value_count(item_list, 0);
-                val_referrals = get_value_referrals(item_list) + count_val;
-                set_value_referrals(item_list, val_referrals);
+                val_referrals = get_value_credit(item_list) + count_val;
+                set_value_credit(item_list, val_referrals);
               }
             },
             error: function (err, data) {
@@ -89,14 +81,14 @@
       return $(spin).val(value);
     }
 
-    function get_value_referrals(item_list) {
-      var referrals_p_element = $(item_list).find('.resume-widget p');
-      return parseInt($(referrals_p_element).text());
+    function get_value_credit(item_list) {
+      var credit_p_element = $(item_list).find('.resume-widget p');
+      return parseInt($(credit_p_element).text());
     }
 
-    function set_value_referrals(item_list, value) {
-      var referrals_p_element = $(item_list).find('.resume-widget p');
-      $(referrals_p_element).text(value);
+    function set_value_credit(item_list, value) {
+      var credit_p_element = $(item_list).find('.resume-widget p');
+      $(credit_p_element).text(value);
     }
   });
 </script>

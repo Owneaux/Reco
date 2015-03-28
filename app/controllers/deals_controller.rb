@@ -26,9 +26,6 @@ class DealsController < ApplicationController
     }
   end
 
-  def promoters
-  end
-
   # GET /deals/1
   # GET /deals/1.json
   def show

@@ -1,5 +1,7 @@
 class BusinessPromotersController < ApplicationController
 
+  before_action :set_promoter_data, only: [:show, :payment]
+
   def new
     @header_title = "Add Promoter"
     @back_path = home_index_path
@@ -11,22 +13,30 @@ class BusinessPromotersController < ApplicationController
 
   def show
     @back_path = home_index_path
-
-    @promoter = Promoter.find(params[:id])
     @header_title = @promoter.name
-    @deals = Deal.where(promoter_id: params[:id])
   end
 
-  def checkout
-    deal_id = params[:id]
-    if deal_id
-      deal = Deal.find(params[:id])
-      deal.paid = true
-      deal.paid_at = Time.now
-      deal.save
-    end
+  def payment
+    @back_path = business_promoters_path
+  end
 
-    render nothing: true, status: 200
+  def checkout_payment
+    promoter = Promoter.find(params[:promoter_id])
+    payment = Payment.create(
+      amount: params[:amount],
+      what_for: params[:what_for]
+      )
+    payment.business = current_business
+    payment.promoter = promoter
+    if payment.save
+      redirect_to business_promoters_path(promoter)
+    else
+      # TODO
+    end
+  end
+
+  def history
+
   end
 
   def destroy
@@ -41,8 +51,8 @@ class BusinessPromotersController < ApplicationController
   def create
     @business_promoter = BusinessPromoter.create(
       business_id: current_business.id,
-      promoter_id: params[:promoter_id])
-
+      promoter_id: params[:promoter_id]
+    )
     respond_to do |format|
       if @business_promoter.save
         format.html { redirect_to home_index_path }
@@ -51,4 +61,16 @@ class BusinessPromotersController < ApplicationController
       end
     end
   end
+
+  private
+    def set_promoter_data
+      @promoter = Promoter.find(params[:id])
+      @referrals = Deal.where(business_id: current_business.id, promoter_id: @promoter.id).sum(:referrals)
+      payments = Payment.where(business_id: current_business.id, promoter_id: @promoter.id).sum(:amount)
+      @credit = @referrals - payments
+    end
+
+    def payment_params
+      params.require(:payment).permit(:amount, :what_for, :promoter_id)
+    end
 end

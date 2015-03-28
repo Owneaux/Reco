@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150309075550) do
+ActiveRecord::Schema.define(version: 20150328131125) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,16 +63,26 @@ ActiveRecord::Schema.define(version: 20150309075550) do
     t.integer  "deal_type_id"
     t.integer  "promoter_id"
     t.integer  "business_id"
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
     t.integer  "referrals"
-    t.boolean  "paid",         default: false
-    t.date     "paid_at"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   add_index "deals", ["business_id"], name: "index_deals_on_business_id", using: :btree
   add_index "deals", ["deal_type_id"], name: "index_deals_on_deal_type_id", using: :btree
   add_index "deals", ["promoter_id"], name: "index_deals_on_promoter_id", using: :btree
+
+  create_table "payments", force: :cascade do |t|
+    t.integer  "amount"
+    t.string   "what_for"
+    t.integer  "business_id"
+    t.integer  "promoter_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "payments", ["business_id"], name: "index_payments_on_business_id", using: :btree
+  add_index "payments", ["promoter_id"], name: "index_payments_on_promoter_id", using: :btree
 
   create_table "promoters", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -101,4 +111,6 @@ ActiveRecord::Schema.define(version: 20150309075550) do
   add_foreign_key "deals", "businesses"
   add_foreign_key "deals", "deal_types"
   add_foreign_key "deals", "promoters"
+  add_foreign_key "payments", "businesses"
+  add_foreign_key "payments", "promoters"
 end
