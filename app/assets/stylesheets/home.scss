@@ -15,6 +15,17 @@
         float:left;
         .ui-controlgroup {
           margin: 0px 0px 0px 10px;
+          .ui-controlgroup-controls {
+            .ui-btn {
+              background-color: #FFFFFF !important;
+            }
+            .ui-shadow-inset {
+              box-shadow: none;
+            }
+            .ui-input-text {
+              padding: 4px 0px !important;
+            }
+          }
         }
       }
       .img-check {
