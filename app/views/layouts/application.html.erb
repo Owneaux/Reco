@@ -25,13 +25,6 @@
       <div data-role="content">
         <%= yield %>
       </div>
-      <div data-role="footer" data-tap-toggle="false" data-position="fixed">
-        <% if @role == 'Promoter' %>
-          <%= render('layouts/promoter/bottom_nav_bar.html.erb') %>
-        <% else %>
-          <%= render('layouts/business/bottom_nav_bar.html.erb') %>
-        <% end %>
-      </div>
     </div>
     <%= yield(:after_js) %>
   </body>

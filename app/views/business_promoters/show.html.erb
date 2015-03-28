@@ -1,74 +1,44 @@
-<div class="business-promoter-deals-container">
-  <ul data-role="listview" data-inset="false">
-    <% @deals.each do |deal| %>
-      <li>
-        <div class="referrals">
-          <% if deal.paid %>
-            <h3><%= deal.referrals * deal.deal_type.commission %> €</h3>
-          <% else %>
-            <h3><%= deal.referrals %> x</h3>
-          <% end %>
+<div class="promoter-profile">
+  <div class="header-info-container">
+    <h3><%= @promoter.name %></h3>
+    <div class="header-info-text" id="header-info-mail">
+      <a href="mailto:<%= @promoter.email %>"><%= @promoter.email %></a>
+    </div>
+    <div class="header-info-text" id="header-info-phone">
+      <a href="tel:<%= @promoter.phone %>"><%= @promoter.phone %></a>
+    </div>
+    <br>
+  </div>
+  <div class="report-info-container">
+    <a href="#">
+      <div class="report-info-badget">
+        <div class="badget-value">
+          <%= @referrals %>
         </div>
-        <% if deal.paid == false %>
-          <div class="commission">
-            <h3><%= deal.deal_type.commission %> €</h3>
-          </div>
-        <% end %>
-        <% if deal.paid %>
-          <div class="paid">
-            <%= deal.paid_at.to_s %>
-          </div>
-        <% else %>
-          <div class="payment-info">
-            <div class="paid">
-
-            </div>
-            <div class="img-pay">
-              <%= image_tag('previous2-icon.png', id: deal.id) %>
-            </div>
-          </div>
-        <% end %>
-      </li>
-    <% end %>
-  </ul>
+        <div class="badget-title">
+          Referrals
+        </div>
+      </div>
+    </a>
+    <a href="#">
+      <div class="report-info-badget">
+        <div class="badget-value">
+          <%= @deals %>
+        </div>
+        <div class="badget-title">
+          Deals
+        </div>
+      </div>
+    </a>
+    <a href="#">
+      <div class="report-info-badget">
+        <div class="badget-value">
+          <%= @promoters %>
+        </div>
+        <div class="badget-title">
+          Promoters
+        </div>
+      </div>
+    </a>
+  </div>
 </div>
-
-<script>
-  $(function() {
-    $(document).on('pageshow', 'div[data-role*="page"]', function () {
-      (function () {
-        init_widgets();
-      })();
-    });
-
-    function init_widgets() {
-      var img_pay_elem_list = $('.ui-li-static .img-pay img');
-
-      var i = 0;
-
-      for (i; i < img_pay_elem_list.length; i++) {
-        var img = img_pay_elem_list[i];
-        $(img).unbind('click');
-        $(img).click(function(event) {
-          event.preventDefault();
-          var img = event.target;
-          var deal_id = img.id;
-          var path = '/business_promoters/checkout/' + deal_id
-          $.ajax({
-            type: 'GET',
-            url: path,
-            async: false,
-            success: function (data, status) {
-              if (status === 'success') {
-                $(img).hide();
-              }
-            },
-            error: function (err, data) {
-              alert("Error " + err.responseText);
-            }
-          });
-        });
-      }
-    }
-  });
-</script>

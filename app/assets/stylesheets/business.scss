@@ -5,7 +5,7 @@
   }
   .report-info-container {
     position: absolute;
-    bottom: 50px;
+    top: 350px;
     width: 100%;
     margin: auto 0;
     .report-info-badget {
@@ -13,19 +13,32 @@
       opacity: 0.9;
       border-radius: 50%;
       display: inline-block;
-      margin-right: 10px;
-      width: 80px;
-      height: 80px;
+      margin-right: 30px;
+      width: 120px;
+      height: 120px;
       text-align: center;
       cursor: pointer;
       .badget-value {
         position: relative;
-        top: 35px;
+        top: 40px;
+        font-size: 30px;
       }
       .badget-title {
         position: relative;
-        bottom: -70px;
+        bottom: -100px;
       }
+    }
+  }
+  .button-container {
+    position: absolute;
+    bottom: 50px;
+    margin-left:-120px;
+    left:50%;
+    width:240px;
+    .btn-sign-out {
+      width:100%;
+      color: #FFFFFF;
+      text-shadow: none;
     }
   }
 }

@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   get 'home/index' => 'home#index'
   post 'home/checkout' => 'home#check_out_referrals'
 
-  get 'business_promoters/index' => "business_promoters#index"
+  # get 'business_promoters/index' => "business_promoters#index"
   get 'business_promoters/new' => "business_promoters#new"
   get 'business_promoters/create' => "business_promoters#create"
   delete 'business_promoters/:id' => "business_promoters#destroy"
