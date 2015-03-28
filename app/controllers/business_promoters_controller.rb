@@ -1,21 +1,4 @@
 class BusinessPromotersController < ApplicationController
-  #before_action :set_business_promoters, only: [:index]
-
-  # def index
-  #   # @header_title = "Add Promoter"
-  #   # @subheader = true
-  #   # @subheader_right_action = {
-  #   #   path: business_promoters_new_path,
-  #   #   text: "",
-  #   #   icon: "ui-btn-right ui-icon-fa-plus ui-btn-icon-notext ui-corner-all"
-  #   # }
-
-  #   # @subheader_left_action = {
-  #   #   path: "",
-  #   #   text: "Delete",
-  #   #   icon: "ui-btn-left ui-icon-delete ui-btn-icon-notext ui-corner-all btn-delete-promoter"
-  #   # }
-  # end
 
   def new
     @header_title = "Add Promoter"
@@ -28,8 +11,9 @@ class BusinessPromotersController < ApplicationController
 
   def show
     @back_path = home_index_path
-    promoter = Promoter.find(params[:id])
-    @header_title = promoter.name
+
+    @promoter = Promoter.find(params[:id])
+    @header_title = @promoter.name
     @deals = Deal.where(promoter_id: params[:id])
   end
 
@@ -50,7 +34,7 @@ class BusinessPromotersController < ApplicationController
     if business_promoter_rcd.size > 0
         business_promoter = business_promoter_rcd.first
         business_promoter.destroy
-        render nothing: true, status: 200
+        redirect_to home_index_path
     end
   end
 
@@ -67,10 +51,4 @@ class BusinessPromotersController < ApplicationController
       end
     end
   end
-
-  private
-
-  # def set_business_promoters
-  #   @business_promoters = current_business.promoters
-  # end
 end
