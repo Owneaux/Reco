@@ -39,7 +39,7 @@ class HomeController < ApplicationController
       @deal_type = current_business.deal_type
       if @deal_type.nil?
         @deal_type = DealType.create(
-        name: '',
+        name: 'default deal type',
         commission: 0.0,
         description: '',
         business_id: current_business.id
