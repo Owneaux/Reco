@@ -12,7 +12,7 @@
   <div class="report-info-container">
     <div class="report-info-badget" id="credit">
       <div class="badget-value">
-        90
+        <%= @credit %>
       </div>
       <div class="badget-title">
         Credit
@@ -20,7 +20,7 @@
     </div>
     <div class="report-info-badget" id="clients">
       <div class="badget-value">
-        100
+        <%= @referrals %>
       </div>
       <div class="badget-title">
         Clients
@@ -28,8 +28,8 @@
     </div>
   </div>
   <div class="action-button-container">
-    <%= link_to "Pay", "/business_promoters/" + @promoter.id.to_s, class: "btn btn-default btn-action", method: :get  %>
-    <%= link_to "History", "/business_promoters/" + @promoter.id.to_s, class: "btn btn-default btn-action", method: :get  %>
+    <%= link_to "Pay", "/business_promoters/payment/" + @promoter.id.to_s, class: "btn btn-default btn-action", method: :get  %>
+    <%= link_to "History", "/business_promoters/history/" + @promoter.id.to_s, class: "btn btn-default btn-action", method: :get  %>
   </div>
   <div class="button-container">
     <%= link_to "Delete", "/business_promoters/" + @promoter.id.to_s, class: "btn btn-danger btn-delete", method: :delete  %>

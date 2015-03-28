@@ -4,6 +4,7 @@ class CreateDeals < ActiveRecord::Migration
       t.references :deal_type, index: true
       t.references :promoter, index: true
       t.references :business, index: true
+      t.integer :referrals
 
       t.timestamps null: false
     end

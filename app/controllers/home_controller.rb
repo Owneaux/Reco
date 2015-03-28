@@ -4,7 +4,8 @@ class HomeController < ApplicationController
 
   def index
     @header_title = "Promoters"
-    @deals_rcd = Deal.where(business_id: current_business.id).where("created_at >= ? AND paid = ?", Time.zone.now.beginning_of_day, false)
+    # @deals_rcd = Deal.where(business_id: current_business.id).where("created_at >= ? AND paid = ?", Time.zone.now.beginning_of_day, false)
+    @promoters_data = get_promoters_data(@business_promoters)
 
     @header_left_action = {
       path: business_promoters_new_path,
@@ -17,23 +18,31 @@ class HomeController < ApplicationController
   def check_out_referrals
     promoter_id = params[:promoter]
     referrals = params[:referrals]
-    deal_rcd = Deal.where(promoter_id: promoter_id).where(business_id: current_business.id).where("created_at >= ? AND paid = ?", Time.zone.now.beginning_of_day, false)
-    if deal_rcd.size == 0
-      deal = Deal.create(
-        promoter_id: promoter_id,
-        business_id: current_business.id,
-        deal_type_id: @deal_type.id,
-        referrals: referrals)
-      deal.save
-    else
-      deal = deal_rcd.first
-      deal.referrals = deal.referrals + referrals.to_i
-      deal.save
+    deal = Deal.create(
+      promoter_id: promoter_id,
+      business_id: current_business.id,
+      deal_type_id: @deal_type.id,
+      referrals: referrals
+      )
+    if deal.save
+      render nothing: true, status: 200
     end
-    render nothing: true, status: 200
   end
 
   private
+
+    def get_promoters_data(promoters)
+      promoters_data = []
+      promoters.each do |promoter|
+        promoter_data = {}
+        referrals = Deal.where(business_id: current_business.id, promoter_id: promoter.id).sum(:referrals)
+        payments = Payment.where(business_id: current_business.id, promoter_id: promoter.id).sum(:amount)
+        promoter_data[:promoter] = promoter
+        promoter_data[:credit] = referrals - payments
+        promoters_data << promoter_data
+      end
+      promoters_data
+    end
 
     def set_deal_type
       @deal_type = current_business.deal_type
