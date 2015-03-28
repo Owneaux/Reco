@@ -36,7 +36,10 @@ class BusinessPromotersController < ApplicationController
   end
 
   def history
+    @deals = Deal.where(promoter_id: params[:id], business_id: current_business.id)
+    @payments = Payment.where(promoter_id: params[:id], business_id: current_business.id)
 
+    @back_path = business_promoters_path
   end
 
   def destroy
