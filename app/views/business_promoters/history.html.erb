@@ -1,0 +1,62 @@
+
+<div class="history-container">
+  <div data-role="controlgroup" data-type="horizontal">
+      <a href="#" id="clients" class="ui-btn ui-corner-all">Clients</a>
+      <a href="#" id="payments" class="ui-btn ui-corner-all">Payments</a>
+  </div>
+  <div id="clients-container">
+    <div class="deals-container">
+      <div class="deals-data">
+        <ul data-role="listview" data-inset="false">
+          <% @deals.each do |deal| %>
+            <li>
+              <div class="deal-client-number">
+                <%= deal.referrals%>
+              </div>
+              <div class="deal-date-time">
+                <%= deal.created_at.strftime('%F %H:%M') %>
+              </div>
+              </a>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div id="payments-container">
+    <div class="payments-container">
+      <div class="payments-data">
+        <ul data-role="listview" data-inset="false">
+          <% @payments.each do |payment| %>
+            <li>
+              <div class="payment-amount">
+                <%= payment.amount %>
+              </div>
+              <div class="payment-what-for">
+                <%= payment.what_for %>
+              </div>
+              <div class="payment-date">
+                <%= payment.created_at.strftime('%F') %>
+              </div>
+              </a>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+  </div>
+</div>
+<script>
+  $(function() {
+    $('#clients-container').show();
+    $('#payments-container').hide();
+
+    $('a#clients').click(function() {
+      $('#clients-container').show();
+      $('#payments-container').hide();
+    });
+    $('a#payments').click(function() {
+      $('#clients-container').hide();
+      $('#payments-container').show();
+    });
+  });
+</script>

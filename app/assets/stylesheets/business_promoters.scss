@@ -92,5 +92,52 @@
   }
 }
 
+.history-container {
+  .ui-controlgroup {
+    text-align: center;
+    margin-bottom: 30px;
+    .ui-btn {
+      width: 150px
+    }
+  }
+  .deals-container {
+    font-size: 20px;
+    font-weight: 400;
+    .deals-data {
+      .ui-listview {
+        .ui-li-static {
+          .deal-client-number {
+            float: left;
+            padding-left: 20px;
+          }
+          .deal-date-time {
+            float: right;
+          }
+        }
+      }
+    }
+  }
+  .payments-container {
+    font-size: 20px;
+    font-weight: 400;
+    .payments-data {
+      .ui-listview {
+        .ui-li-static {
+          .payment-amount {
+            float: left;
+            padding-left: 20px;
+          }
+          .payment-what-for {
+            float: left;
+            padding-left: 40px;
+          }
+          .payment-date {
+            float: right;
+          }
+        }
+      }
+    }
+  }
+}
 
 
