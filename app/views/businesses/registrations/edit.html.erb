@@ -1,6 +1,6 @@
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= f.error_notification %>
-  <div data-role="collapsible" data-collapsed="false">
+  <div data-role="collapsible" data-collapsed="true" id="basic_data">
     <h4>Basic info</h4>
     <fieldset>
       <label for="name">Name:</label>
@@ -19,12 +19,12 @@
       <input name="business[phone]" id="phone" value="<%= @business.phone %>" class="string"/>
     </fieldset>
   </div>
-  <div data-role="collapsible">
+  <div data-role="collapsible" data-collapsed="true" id="credentials_data">
     <h4>Credentials</h4>
     <fieldset>
       <label class="email required" for="email">Email:</label>
       <input name="business[email]" id="email" value="<%= @business.email %>" type="email"required="required" class="email string required"/>
-    </fieldset> -->
+    </fieldset>
     <%= f.input :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false %>
     <%= f.input :password_confirmation, required: false %>
   </div>
@@ -33,3 +33,20 @@
     <%= f.button :submit, "Update" %>
   </div>
 <% end %>
+
+<script>
+  $(function() {
+    $("#basic_data").collapsible({
+      expand: function(event, ui) {
+        $('#credentials_data').collapsible('collapse');
+      }
+    });
+
+    $("#credentials_data").collapsible({
+      expand: function(event, ui) {
+        $('#basic_data').collapsible('collapse');
+      }
+    });
+  });
+</script>
+

@@ -3,8 +3,15 @@ class HomeController < ApplicationController
   before_action :set_deal_type, only: [:index, :check_out_referrals]
 
   def index
-    @header_title = "Today's referrals"
+    @header_title = "Promoters"
     @deals_rcd = Deal.where(business_id: current_business.id).where("created_at >= ? AND paid = ?", Time.zone.now.beginning_of_day, false)
+
+    @header_left_action = {
+      path: business_promoters_new_path,
+      text: "",
+      icon: "ui-btn-left ui-btn-icon-notext ui-corner-all",
+      data: { icon: "fa-plus", mini: "true"}
+    }
   end
 
   def check_out_referrals

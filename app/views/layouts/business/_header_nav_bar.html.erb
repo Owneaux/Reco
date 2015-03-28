@@ -1,6 +1,11 @@
 <h1><%= @header_title %></h1>
-<%= link_to "", destroy_business_session_path, method: :delete, class: "ui-btn-right ui-btn-icon-no-text", data: { icon: "fa-sign-out", mini: "true"} %>
+<%= link_to "", business_show_path, method: :get, class: "ui-btn-right ui-btn-icon-no-text", data: { icon: "fa-user", mini: "true"} %>
 
-<% if @back_path %>
-  <%= link_to "", @back_path, class: "ui-btn-left ui-btn-icon-no-text", data: { icon: "fa-arrow-left", mini: "true" } %>
+<% if defined? @header_left_action %>
+  <%= link_to @header_left_action[:text], @header_left_action[:path], class: @header_left_action[:icon], data: @header_left_action[:data] %>
+<% else %>
+  <% if @back_path %>
+    <%= link_to "", @back_path, class: "ui-btn-left ui-btn-icon-no-text", data: { icon: "fa-arrow-left", mini: "true" } %>
+  <% end %>
 <% end %>
+

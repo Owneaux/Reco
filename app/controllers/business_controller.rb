@@ -1,11 +1,12 @@
 class BusinessController < ApplicationController
   def show
     @business = current_business
-    business_deals = Deal.where(business_id: current_business.id)
-    @deals = business_deals.size
+    #business_deals = Deal.where(business_id: current_business.id)
+    #@deals = business_deals.size
     @referrals = Deal.where(business_id: current_business.id).sum(:referrals)
     @promoters = current_business.promoters.size
 
+    @back_path = home_index_path
     @subheader = true
     @subheader_right_action = {
       path:  edit_business_registration_path,

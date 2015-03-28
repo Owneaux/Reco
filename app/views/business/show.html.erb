@@ -20,21 +20,11 @@
           <%= @referrals %>
         </div>
         <div class="badget-title">
-          Referrals
+          Clients
         </div>
       </div>
     </a>
     <a href="#">
-      <div class="report-info-badget">
-        <div class="badget-value">
-          <%= @deals %>
-        </div>
-        <div class="badget-title">
-          Deals
-        </div>
-      </div>
-    </a>
-    <a href="<%= business_promoters_index_path %>">
       <div class="report-info-badget">
         <div class="badget-value">
           <%= @promoters %>
@@ -44,5 +34,8 @@
         </div>
       </div>
     </a>
+  </div>
+  <div class="button-container">
+    <%= link_to "Log out", destroy_business_session_path, class: "btn btn-danger btn-sign-out", method: :delete  %>
   </div>
 </div>

@@ -1,25 +1,25 @@
 class BusinessPromotersController < ApplicationController
-  before_action :set_business_promoters, only: [:index]
+  #before_action :set_business_promoters, only: [:index]
 
-  def index
-    @header_title = "Promoters"
-    @subheader = true
-    @subheader_right_action = {
-      path: business_promoters_new_path,
-      text: "",
-      icon: "ui-btn-right ui-icon-fa-plus ui-btn-icon-notext ui-corner-all"
-    }
+  # def index
+  #   # @header_title = "Add Promoter"
+  #   # @subheader = true
+  #   # @subheader_right_action = {
+  #   #   path: business_promoters_new_path,
+  #   #   text: "",
+  #   #   icon: "ui-btn-right ui-icon-fa-plus ui-btn-icon-notext ui-corner-all"
+  #   # }
 
-    @subheader_left_action = {
-      path: "",
-      text: "Delete",
-      icon: "ui-btn-left ui-icon-delete ui-btn-icon-notext ui-corner-all btn-delete-promoter"
-    }
-  end
+  #   # @subheader_left_action = {
+  #   #   path: "",
+  #   #   text: "Delete",
+  #   #   icon: "ui-btn-left ui-icon-delete ui-btn-icon-notext ui-corner-all btn-delete-promoter"
+  #   # }
+  # end
 
   def new
-    @header_title = "Search promoter"
-    @back_path = business_promoters_index_path
+    @header_title = "Add Promoter"
+    @back_path = home_index_path
 
     @promoters = Promoter
           .joins('LEFT JOIN business_promoters ON promoters.id = business_promoters.promoter_id')
@@ -27,11 +27,10 @@ class BusinessPromotersController < ApplicationController
   end
 
   def show
-    @back_path = business_promoters_index_path
+    @back_path = home_index_path
     promoter = Promoter.find(params[:id])
     @header_title = promoter.name
     @deals = Deal.where(promoter_id: params[:id])
-    p @deals
   end
 
   def checkout
@@ -62,7 +61,7 @@ class BusinessPromotersController < ApplicationController
 
     respond_to do |format|
       if @business_promoter.save
-        format.html { redirect_to business_promoters_index_path }
+        format.html { redirect_to home_index_path }
       else
         # TODO send error
       end
@@ -71,7 +70,7 @@ class BusinessPromotersController < ApplicationController
 
   private
 
-  def set_business_promoters
-    @business_promoters = current_business.promoters
-  end
+  # def set_business_promoters
+  #   @business_promoters = current_business.promoters
+  # end
 end
