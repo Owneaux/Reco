@@ -1,4 +1,4 @@
-<div class="promoter-profile">
+<div class="business-promoter-profile">
   <div class="header-info-container">
     <h3><%= @promoter.name %></h3>
     <div class="header-info-text" id="header-info-mail">
@@ -10,35 +10,28 @@
     <br>
   </div>
   <div class="report-info-container">
-    <a href="#">
-      <div class="report-info-badget">
-        <div class="badget-value">
-          <%= @referrals %>
-        </div>
-        <div class="badget-title">
-          Referrals
-        </div>
+    <div class="report-info-badget" id="credit">
+      <div class="badget-value">
+        90
       </div>
-    </a>
-    <a href="#">
-      <div class="report-info-badget">
-        <div class="badget-value">
-          <%= @deals %>
-        </div>
-        <div class="badget-title">
-          Deals
-        </div>
+      <div class="badget-title">
+        Credit
       </div>
-    </a>
-    <a href="#">
-      <div class="report-info-badget">
-        <div class="badget-value">
-          <%= @promoters %>
-        </div>
-        <div class="badget-title">
-          Promoters
-        </div>
+    </div>
+    <div class="report-info-badget" id="clients">
+      <div class="badget-value">
+        100
       </div>
-    </a>
+      <div class="badget-title">
+        Clients
+      </div>
+    </div>
+  </div>
+  <div class="action-button-container">
+    <%= link_to "Pay", "/business_promoters/" + @promoter.id.to_s, class: "btn btn-default btn-action", method: :get  %>
+    <%= link_to "History", "/business_promoters/" + @promoter.id.to_s, class: "btn btn-default btn-action", method: :get  %>
+  </div>
+  <div class="button-container">
+    <%= link_to "Delete", "/business_promoters/" + @promoter.id.to_s, class: "btn btn-danger btn-delete", method: :delete  %>
   </div>
 </div>

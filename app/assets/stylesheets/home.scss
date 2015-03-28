@@ -11,36 +11,23 @@
         font-size: 14px;
       }
       .count-widget {
-        padding-left: 10px;
-        .referrals-value {
-          float:left;
-          font-size: 20px;
-          font-weight: 500;
-          width: 20px;
-          text-align: center;
+        width: 150px;
+        float:left;
+        .ui-controlgroup {
+          margin: 0px 0px 0px 10px;
         }
-        .img-minus {
-          float:left;
-          margin-right: 5px;
-          margin-left: 5px;
-        }
-        .img-plus {
-          float:left;
-          margin-left: 5px;
-        }
+      }
+      .img-check {
+        float:left;
+        margin-left: 5px;
+        margin-top: 5px;
       }
       .resume-widget {
         float:right;
         .referrals-total {
-          float:left;
-          font-size: 20px;
+          font-size: 26px;
           font-weight: 700;
-        }
-        .img-check {
-          img {
-            margin-left: 10px;
-          }
-          float:right;
+          color: #FF6B6B;
         }
       }
     }

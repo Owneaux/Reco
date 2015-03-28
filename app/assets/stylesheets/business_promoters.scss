@@ -1,43 +1,61 @@
-.business-promoter-container {
-  .ui-li-has-thumb {
-    img {
-      height: 24px;
-      margin-top: 15px;
-      margin-left: 10px;
-      z-index: 10;
-      cursor: pointer;
-      display: none;
+.business-promoter-profile {
+  text-align: center;
+  .header-info-container {
+    margin-bottom: 30px;
+    font-weight: 500;
+  }
+  .report-info-container {
+    position: absolute;
+    top: 200px;
+    width: 100%;
+    margin: auto 0;
+    font-weight: 500;
+    .report-info-badget {
+      background-color: #F0F0F0;
+      opacity: 0.9;
+      border-radius: 50%;
+      display: inline-block;
+      margin-right: 30px;
+      width: 120px;
+      height: 120px;
+      .badget-value {
+        position: relative;
+        top: 40px;
+        font-size: 30px;
+      }
+      .badget-title {
+        position: relative;
+        bottom: -100px;
+        font-size: 24px;
+      }
     }
-    .ui-btn {
-      padding-left: 15px;
+  }
+  .button-container {
+    position: absolute;
+    bottom: 50px;
+    margin-left:-120px;
+    left:50%;
+    width:280px;
+    .btn-delete {
+      width:100%;
+      color: #FFFFFF;
+      text-shadow: none;
+    }
+  }
+  .action-button-container {
+    position: absolute;
+    top: 450px;
+    margin-left:-120px;
+    left:50%;
+    width:280px;
+    .btn-action {
+      display: block;
+      width:100%;
+      margin-bottom: 10px;
     }
   }
 }
 
-.business-promoter-deals-container {
-  .ui-listview {
-    .ui-li-static {
-      .referrals {
-        float:left;
-      }
-      .commission {
-        float:left;
-        margin-left: 150px;
-      }
-      .paid {
-        float: right;
-        font-size: 18px;
-        font-weight: 500;
-        padding-top: 5px;
-      }
-      .img-pay {
-        img {
-          height: 32px;
-          margin-left: 10px;
-          cursor: pointer;
-        }
-        float:right;
-      }
-    }
-  }
+#credit .badget-value {
+  color: #FF6B6B;
 }

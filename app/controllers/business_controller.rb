@@ -1,8 +1,6 @@
 class BusinessController < ApplicationController
   def show
     @business = current_business
-    #business_deals = Deal.where(business_id: current_business.id)
-    #@deals = business_deals.size
     @referrals = Deal.where(business_id: current_business.id).sum(:referrals)
     @promoters = current_business.promoters.size
 
