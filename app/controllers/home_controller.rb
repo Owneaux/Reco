@@ -4,15 +4,7 @@ class HomeController < ApplicationController
 
   def index
     @header_title = "Promoters"
-    # @deals_rcd = Deal.where(business_id: current_business.id).where("created_at >= ? AND paid = ?", Time.zone.now.beginning_of_day, false)
     @promoters_data = get_promoters_data(@business_promoters)
-
-    @header_left_action = {
-      path: business_promoters_new_path,
-      text: "",
-      icon: "ui-btn-left ui-btn-icon-notext ui-corner-all",
-      data: { icon: "fa-plus", mini: "true"}
-    }
   end
 
   def check_out_referrals
