@@ -2,9 +2,6 @@ source 'https://rubygems.org'
 source 'https://rails-assets.org'
 ruby '2.2.0'
 
-
-ruby '2.2.0'
-
 gem 'devise'
 
 gem 'simple_form', '~> 3.1.0'
@@ -37,8 +34,6 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'rails_12factor', group: :production
 gem 'puma',           group: :production
-
-gem 'faker', '~> 1.4.3'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

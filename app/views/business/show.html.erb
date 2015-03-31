@@ -14,28 +14,24 @@
     </div>
   </div>
   <div class="report-info-container">
-    <a href="#">
-      <div class="report-info-badget">
-        <div class="badget-value">
-          <%= @referrals %>
-        </div>
-        <div class="badget-title">
-          Clients
-        </div>
+    <div class="report-info-badget">
+      <div class="badget-value">
+        <%= @referrals %>
       </div>
-    </a>
-    <a href="#">
-      <div class="report-info-badget">
-        <div class="badget-value">
-          <%= @promoters %>
-        </div>
-        <div class="badget-title">
-          Promoters
-        </div>
+      <div class="badget-title">
+        Clients
       </div>
-    </a>
+    </div>
+    <div class="report-info-badget">
+      <div class="badget-value">
+        <%= @promoters %>
+      </div>
+      <div class="badget-title">
+        Promoters
+      </div>
+    </div>
   </div>
   <div class="button-container">
-    <%= link_to "Log out", destroy_business_session_path, class: "btn btn-danger btn-sign-out", method: :delete  %>
+    <%= link_to "Log out", destroy_business_session_path, class: "btn btn-sign-out", method: :delete  %>
   </div>
 </div>

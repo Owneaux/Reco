@@ -5,7 +5,6 @@
   }
   .report-info-container {
     position: absolute;
-    top: 350px;
     width: 100%;
     margin: auto 0;
     .report-info-badget {
@@ -26,6 +25,7 @@
       .badget-title {
         position: relative;
         bottom: -100px;
+        font-size: 18px;
       }
     }
   }
@@ -37,7 +37,9 @@
     width:280px;
     .btn-sign-out {
       width:100%;
-      color: #FFFFFF;
+      color: #D43F3A;
+      background-color: #FFF;
+      border: 1px solid #D9534F;
       text-shadow: none;
     }
   }
