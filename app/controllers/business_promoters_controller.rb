@@ -46,7 +46,17 @@ class BusinessPromotersController < ApplicationController
     business_promoter_rcd = BusinessPromoter.where(promoter_id: params[:id]).where(business_id: current_business.id)
     if business_promoter_rcd.size > 0
         business_promoter = business_promoter_rcd.first
+        deals = Deal.where(promoter_id: business_promoter.promoter_id, business_id: current_business.id)
+        p 'deals: ' + deals.size.to_s
+        deals.each do |deal|
+          deal.destroy
+        end
+        payments = Payment.where(promoter_id: business_promoter.promoter_id, business_id: current_business.id)
+        payments.each do |payment|
+          payment.destroy
+        end
         business_promoter.destroy
+
         redirect_to home_index_path
     end
   end
